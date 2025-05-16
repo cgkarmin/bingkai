@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BC Penulis Superhero Suite - Papan Pemuka Utama</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./css/pop_art_theme.css"> 
+    <style>
+        body {
+            /* Tambahan gaya untuk laman utama jika perlu */
+            background-color: #f0f0f0; /* Latar belakang lembut untuk kontras dengan kad */
+        }
+        .hero-section {
+            background: linear-gradient(45deg, #ff006e, #ffbe0b, #48bfe3); /* Warna-warna Pop Art */
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 8px solid #000;
+        }
+        .hero-section h1 {
+            font-family: 'Bangers', cursive;
+            font-size: 3.5rem;
+            text-shadow: 3px 3px 0px #000000;
+        }
+        .hero-section p {
+            font-size: 1.25rem;
+            font-family: 'Passion One', cursive;
+            letter-spacing: 1px;
+        }
+        .module-card {
+            border: 4px solid #000000;
+            border-radius: 0; /* Kekalkan gaya pop art */
+            box-shadow: 6px 6px 0px #000000;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            background-color: #fff;
+            height: 100%; /* Untuk memastikan kad sama tinggi dalam satu baris */
+            display: flex;
+            flex-direction: column;
+        }
+        .module-card:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0px #000000;
+        }
+        .module-card .card-header {
+            font-family: 'Bangers', cursive;
+            font-size: 1.8rem;
+            color: white;
+            border-bottom: 4px solid #000;
+            padding: 1rem 1.25rem;
+        }
+        .module-card .card-body {
+            flex-grow: 1; /* Memastikan body mengambil ruang yang tinggal */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .module-card .card-text {
+            font-family: 'Arial', sans-serif; /* Font yang lebih mudah dibaca untuk deskripsi */
+            font-size: 0.95rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+        .module-card .btn-start-module {
+            font-family: 'Passion One', cursive;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            border-radius: 0;
+            border-width: 2px;
+            padding: 0.5rem 1rem;
+            text-transform: uppercase;
+        }
+        /* Warna spesifik untuk setiap kad modul */
+        #modul1Card .card-header { background-color: #e60073; } /* Magenta */
+        #modul1Card .btn-start-module { background-color: #e60073; border-color: #e60073; color: white; }
+        #modul1Card .btn-start-module:hover { background-color: #c0005e; border-color: #c0005e; }
+
+        #modul2Card .card-header { background-color: #007bff; } /* Biru */
+        #modul2Card .btn-start-module { background-color: #007bff; border-color: #007bff; color: white; }
+        #modul2Card .btn-start-module:hover { background-color: #0056b3; border-color: #0056b3; }
+        
+        #modul3Card .card-header { background-color: #198754; } /* Hijau */
+        #modul3Card .btn-start-module { background-color: #198754; border-color: #198754; color: white; }
+        #modul3Card .btn-start-module:hover { background-color: #105c38; border-color: #105c38; }
+
+        .module-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bc-superhero-body">
+
+    <div class="hero-section">
+        <h1>BC Penulis Superhero Suite</h1>
+        <p>Alat Bantu Digital Anda untuk Mencipta Komik Adiwira Epik!</p>
+    </div>
+
+    <main class="container mt-4 mb-5">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="card module-card" id="modul1Card">
+                    <div class="card-header text-center">
+                        <i class="bi bi-journal-richtext module-icon"></i><br>
+                        Modul 1
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title pop-art-text-alt">Draf Cerita & Watak</h5>
+                        <p class="card-text">
+                            Mulakan projek komik anda di sini! Rangka draf cerita asas, kembangkan idea dengan bantuan AI (luaran), dan bina profil watak-watak adiwira anda dengan terperinci.
+                        </p>
+                        <a href="./modul1_draf_watak/modul1_draf_watak.html" class="btn btn-start-module">
+                            <i class="bi bi-pencil-square"></i> Mula Draf
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card module-card" id="modul2Card">
+                    <div class="card-header text-center">
+                        <i class="bi bi-layout-wtf module-icon"></i><br>
+                        Modul 2
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title pop-art-text-alt">Susun Panel Komik</h5>
+                        <p class="card-text">
+                            Bawa cerita dan watak anda ke peringkat seterusnya. Susun panel utama dan sub-panel, masukkan aksi, dialog, sudut kamera, dan perincian visual untuk setiap babak.
+                        </p>
+                        <a href="./modul2_susun_panel/modul2_susun_panel.html" class="btn btn-start-module">
+                            <i class="bi bi-grid-3x3-gap-fill"></i> Susun Panel
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="card module-card" id="modul3Card">
+                    <div class="card-header text-center">
+                        <i class="bi bi-stars module-icon"></i><br>
+                        Modul 3
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="card-title pop-art-text-alt">Jana Prompt AI</h5>
+                        <p class="card-text">
+                            Dapatkan prompt teks yang kaya dengan butiran untuk setiap panel komik anda. Prompt ini sedia untuk digunakan dengan platform AI penjana imej pilihan anda.
+                        </p>
+                        <a href="./terbitkan_komik/ai_terbit.html" class="btn btn-start-module"> <i class="bi bi-robot"></i> Jana Prompt
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-pop-art mt-5">
+        <p>&copy; <span id="currentYearFooterIndex"></span> BC Penulis Superhero. Hak Cipta Terpelihara.</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        if(document.getElementById("currentYearFooterIndex")) {
+            document.getElementById("currentYearFooterIndex").textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>

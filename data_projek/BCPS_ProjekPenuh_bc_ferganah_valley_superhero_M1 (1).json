@@ -1,0 +1,158 @@
+{
+  "versiProjek": "1.0",
+  "idProjekUnik": "proj_bc_penulis_superhero_001_paneltest",
+  "infoKomik": {
+    "tajukProjek": "BC Ferganah Valley Superhero",
+    "genreUtama": "Adiwira / Alam/ Pelancongan",
+    "sinopsisRingkasProjek": "Elzod berubah menjadi BC Ferganah Valley Superhero untuk melayan MJYJ!",
+    "catatanBCJunior": "Data ini mengandungi contoh panel-panel untuk Modul 2."
+  },
+  "drafCeritaAsasBCJunior": [
+    {
+      "plot_label": "Mula Cerita",
+      "orang_tempat": "Elzod seorang pemandu pelancung yang dapat berubah menjadi BC Perganah Valley, di Uxbekistan.",
+      "peristiwa": "Menerima misi baru.",
+      "perasaan": "Bersemangat.",
+      "dialog_ringkas": "\"Cabaran baru!\""
+    },
+    {
+      "plot_label": "Masalah",
+      "orang_tempat": "YJMJ adalah musuhnya. YMJ bertujuan merosakkan lembah Ferganah atau Ferganah Valley. Dia merosakkan tanaman dan tali air.",
+      "peristiwa": "MJYJ meluru ke perkampungan. Orang ramai kelihatan panik melarikan diri.",
+      "perasaan": "Para penduduk ketakutan dan terpekik-pekau meminta tolong",
+      "dialog_ringkas": "\"MJYJ buat hal lagi.\""
+    },
+    {
+      "plot_label": "Penyelesaian",
+      "orang_tempat": "BC Ferganah Valley, iaitu Elzod nama biasanya menggunakan sinar kamera dan petikan gambar YJMJ untuk menumpaskannya.",
+      "peristiwa": "MJYJ bersepai terkena pancaran cahaya dan juga apabila gamar digital dirinya diturunkan resolusinya.",
+      "perasaan": "BC Ferganah Valley Superhero mengawasi keadaan sehingga benar-benar selamat.",
+      "dialog_ringkas": "\"Kalau kau kembali, inilah nasibmu.\""
+    },
+    {
+      "plot_label": "Akhir Cerita",
+      "orang_tempat": "Ferganay Valley, di Uzbekistan selamat.",
+      "peristiwa": "Para penduduk melambai-lambai ke arah BC Ferganah Valley.",
+      "perasaan": "Mereka tidak takut lagi. Rasa bangga menyelubungi jiwa mereka kerana mereka ada seorang Superhero!",
+      "dialog_ringkas": "\"Ferganah Valley selama-lamanya.\""
+    }
+  ],
+  "senaraiWatak": [
+    {
+      "idUnikWatak": "watak_bcpenulis_001",
+      "namaWatak": "BC Penulis Superhero",
+      "peranan": "Protagonis Utama",
+      "deskripsiImejRujukan": "Seorang lelaki sasa memakai kostum adiwira biru dengan huruf 'BC' di dada, memakai songkok dan kain pelikat bercorak bunga, lengkap dengan jubah merah serta sarung tangan merah. Memegang buku dengan senyuman yakin, berlatar belakang pancaran warna pop-art.",
+      "personalitiKunci": "Berani, positif, lucu, karismatik, menyedarkan",
+      "motivasiUtama": "Menyelamatkan pelajar dan masyarakat dari ancaman ‘malas membaca’ serta menjadikan penulisan dan imaginasi sebagai kekuatan utama.",
+      "penampilanVisual": {
+        "jantinaUmurVisual": "Lelaki, sekitar 40-an",
+        "bentukBadan": "Sasa, atletik",
+        "warnaRambutGaya": "Hitam, pendek kemas",
+        "warnaMata": "Hitam",
+        "warnaKulit": "Sawo matang",
+        "pakaianLazim": "Kostum biru adiwira dengan jubah merah, sarung tangan merah, kain pelikat bercorak bunga, dan songkok hitam.",
+        "aksesoriKhas": "Buku hitam yang digunakan sebagai senjata atau perisai ilmu."
+      }
+    },
+    {
+      "idUnikWatak": "id_1747363469745_zhmnmvg",
+      "namaWatak": "Elzod",
+      "peranan": "Protagonis Utama",
+      "deskripsiImejRujukan": "Sebagai Superhero dia ialah BC Ferganah Valley yang sasa, besar dan bertenaga superpower!",
+      "personalitiKunci": "Berani, kelakar dan sangat pemurah.",
+      "motivasiUtama": "Membantu yang susah, melundungi kebenaran",
+      "penampilanVisual": {
+        "jantinaUmurVisual": "Lelaki, 30 an, tegap",
+        "bentukBadan": "Sasa, tegap, tinggi, handsome",
+        "warnaRambutGaya": "Memakan cap Magenta dan",
+        "warnaMata": "Hijau air",
+        "warnaKulit": "cerah",
+        "pakaianLazim": "pakaian superhero ketat, jaket kalis peluru, kasut kasut tinggu berwarna cikelat gelap, bersarung tangan putih, jubah bendera uzbekistan",
+        "aksesoriKhas": "kamera sentiasa terlilit di leher."
+      }
+    },
+    {
+      "idUnikWatak": "id_1747364458885_vxu764o",
+      "namaWatak": "MJYJ",
+      "peranan": "Antagonis Utama",
+      "deskripsiImejRujukan": "Raksasa berupa gergasi yang hodoh, besar tinggi, berbulu seperti beruang, matanya satu di dahi.",
+      "personalitiKunci": "ganas, perosak lembah dan alam sekitar",
+      "motivasiUtama": "memuaskan nafsu makan dan kejahatannya",
+      "penampilanVisual": {
+        "jantinaUmurVisual": "gergasi raksasa bermata satu",
+        "bentukBadan": "Tegap tinggi bersusuk ototnya",
+        "warnaRambutGaya": "botak",
+        "warnaMata": "merah",
+        "warnaKulit": "berbulu cokelat gelap",
+        "pakaianLazim": "selempand daripada bulu beruang",
+        "aksesoriKhas": "kayu seakan-akan baseball bat yang besar dan panjang di tangan kanannya."
+      }
+    }
+  ],
+  "comicData": [
+    {
+      "idInternalPanel": "panelUtamaM2_1621188000000_0",
+      "subpanel": [
+        {
+          "idInternalSubPanel": "subPanelM2_0_1621188005000",
+          "watak": "BC Penulis Superhero",
+          "aksi": "Berdiri di atas menara buku yang tinggi, memandang ke arah bandar.",
+          "dialog": "Kota ini memerlukan lebih banyak pembaca!",
+          "sudut": "Low angle shot, menunjukkan BC Penulis Superhero dari bawah.",
+          "gaya": "Gaya komik epik dengan warna terang.",
+          "penampilan": {
+            "warna_pakaian": "",
+            "jenis_pakaian": "",
+            "aksesori": "Buku ajaibnya bersinar.",
+            "ekspresi_wajah": "",
+            "warna_kulit": "",
+            "gaya_rambut": ""
+          }
+        },
+        {
+          "idInternalSubPanel": "subPanelM2_0_1621188010000",
+          "watak": "BC Penulis Superhero",
+          "aksi": "Terbang melintasi langit bandar dengan jubah merahnya berkibar.",
+          "dialog": "Misi Literasi bermula SEKARANG!",
+          "sudut": "Medium shot, dari sisi.",
+          "gaya": "Dinamik dengan garisan kelajuan.",
+          "penampilan": {
+            "warna_pakaian": "",
+            "jenis_pakaian": "",
+            "aksesori": "",
+            "ekspresi_wajah": "",
+            "warna_kulit": "",
+            "gaya_rambut": ""
+          }
+        }
+      ]
+    },
+    {
+      "idInternalPanel": "panelUtamaM2_1621188015000_1",
+      "subpanel": [
+        {
+          "idInternalSubPanel": "subPanelM2_1_1621188020000",
+          "watak": "BC Penulis Superhero",
+          "aksi": "Mendarat di sebuah sekolah, disambut oleh kanak-kanak yang teruja.",
+          "dialog": "Adik-adik, mari kita terokai dunia ilmu bersama!",
+          "sudut": "Eye-level shot, menunjukkan interaksi.",
+          "gaya": "Ceria dan berwarna-warni.",
+          "penampilan": {
+            "warna_pakaian": "",
+            "jenis_pakaian": "",
+            "aksesori": "",
+            "ekspresi_wajah": "",
+            "warna_kulit": "",
+            "gaya_rambut": ""
+          }
+        }
+      ]
+    }
+  ],
+  "karanganLanjutan": "<p><strong>BC Penulis Superhero</strong></p><p>Di sebuah lembah indah bernama Ferganah Valley, Uzbekistan, Elzod seorang pemandu pelancong yang ramah sedang menjalankan tugas rutinnya apabila menerima pesanan rahsia melalui alat komunikasi khas. Dengan senyuman penuh semangat, dia berbisik, <em>\"Cabaran baru!\"</em> Lalu, tubuhnya diselubungi cahaya dan berubah menjadi BC Ferganah Valley — seorang adiwira literasi yang membawa kekuatan ilmu dan kreativiti.</p><p>Namun, ketenangan itu tidak kekal lama. YJMJ, musuh utama lembah itu, muncul dengan niat jahat. Dia menyerang tali air dan merosakkan tanaman yang menjadi sumber rezeki penduduk. Dari kejauhan, kelihatan asap tebal dan jeritan orang ramai yang melarikan diri. Kanak-kanak menangis, para ibu cuba menenangkan, dan seorang lelaki tua menjerit, <em>\"MJYJ buat hal lagi!\"</em></p><p>Tidak membuang masa, BC Ferganah Valley terbang ke lokasi. Dengan kamera ajaibnya, dia menangkap imej YJMJ dari pelbagai sudut. Setiap petikan gambar memancarkan sinar penunduk. MJYJ cuba melawan, namun apabila gambarnya dikecilkan ke resolusi paling rendah, dia hilang kawalan dan bersepai terkena cahaya. Dalam nada tegas, BC berkata, <em>\"Kalau kau kembali, inilah nasibmu.\"</em></p><p>\n\n\n\n</p><p>Keadaan kembali tenang. Langit cerah semula dan air mengalir seperti biasa. Penduduk Ferganah Valley keluar dari persembunyian mereka dan bersorak gembira, melambai ke arah adiwira mereka. Dengan rasa bangga, mereka melaungkan serentak, <em>\"Ferganah Valley selama-lamanya!\"</em> — tanda bahawa lembah itu kini dilindungi oleh seorang pahlawan ilmu yang luar biasa.</p>",
+  "metadataLain": {
+    "tarikhDicipta": "2025-05-16T08:00:00.000Z",
+    "tarikhKemasKiniTerakhir": "2025-05-16T00:49:34.524Z"
+  }
+}

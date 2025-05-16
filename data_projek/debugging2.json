@@ -1,0 +1,100 @@
+{
+  "versiProjek": "1.0",
+  "idProjekUnik": "proj_bc_penulis_superhero_001_paneltest",
+  "infoKomik": {
+    "tajukProjek": "BC Penulis Superhero: Misi Literasi (Ujian Panel)",
+    "genreUtama": "Adiwira / Pendidikan / Satira",
+    "sinopsisRingkasProjek": "Ujian paparan panel untuk BC Penulis Superhero.",
+    "catatanBCJunior": "Data ini mengandungi contoh panel untuk Modul 2."
+  },
+  "drafCeritaAsasBCJunior": [
+    {
+      "plot_label": "Mula Cerita",
+      "orang_tempat": "BC Penulis Superhero, di perpustakaan.",
+      "peristiwa": "Menerima misi baru.",
+      "perasaan": "Bersemangat.",
+      "dialog_ringkas": "\"Cabaran baru!\""
+    }
+  ],
+  "senaraiWatak": [
+    {
+      "idUnikWatak": "watak_bcpenulis_001",
+      "namaWatak": "BC Penulis Superhero",
+      "peranan": "Protagonis Utama",
+      "deskripsiImejRujukan": "Seorang lelaki sasa memakai kostum adiwira biru dengan huruf 'BC' di dada, memakai songkok dan kain pelikat bercorak bunga, lengkap dengan jubah merah serta sarung tangan merah. Memegang buku dengan senyuman yakin, berlatar belakang pancaran warna pop-art.",
+      "personalitiKunci": "Berani, positif, lucu, karismatik, menyedarkan",
+      "motivasiUtama": "Menyelamatkan pelajar dan masyarakat dari ancaman ‘malas membaca’ serta menjadikan penulisan dan imaginasi sebagai kekuatan utama.",
+      "latarBelakangRingkas": "Seorang guru Bahasa Melayu yang mendapat kuasa luar biasa dari sebuah buku purba ajaib. Kini berjuang untuk meningkatkan minat membaca dan kreativiti.",
+      "kelebihan": "Kekuatan super, kebolehan terbang, mampu menghasilkan perisai kata dan serangan ayat puitis yang memberi kesedaran atau melumpuhkan lawan.",
+      "kelemahan": "Lemah jika orang ramai tidak membaca langsung. Aura jadi pudar jika tidak menulis atau berkongsi ilmu.",
+      "penampilanVisual": {
+        "jantinaUmurVisual": "Lelaki, sekitar 40-an",
+        "bentukBadan": "Sasa, atletik",
+        "warnaRambutGaya": "Hitam, pendek kemas",
+        "warnaMata": "Hitam",
+        "warnaKulit": "Sawo matang",
+        "pakaianLazim": "Kostum biru adiwira dengan jubah merah, sarung tangan merah, kain pelikat bercorak bunga, dan songkok hitam.",
+        "aksesoriKhas": "Buku hitam yang digunakan sebagai senjata atau perisai ilmu.",
+        "ekspresiWajahTipikal": "Senyuman yakin, tenang dan menyedarkan.",
+        "ciriUnikVisual": "Tengkolok/songkok sebagai mahkota pahlawan ilmu."
+      },
+      "slogan": "Ilmu itu kuasa, membaca itu senjata!",
+      "catatanTambahan": "Sesuai untuk kempen literasi."
+    }
+  ],
+  "comicData": [
+    {
+      "idInternalPanel": "panelUtamaM2_1621188000000_0",
+      "subpanel": [
+        {
+          "idInternalSubPanel": "subPanelM2_0_1621188005000",
+          "watak": "BC Penulis Superhero",
+          "aksi": "Berdiri di atas menara buku yang tinggi, memandang ke arah bandar.",
+          "dialog": "Kota ini memerlukan lebih banyak pembaca!",
+          "sudut": "Low angle shot, menunjukkan BC Penulis Superhero dari bawah.",
+          "gaya": "Gaya komik epik dengan warna terang.",
+          "penampilan": {
+            "warna_pakaian": "",
+            "jenis_pakaian": "",
+            "aksesori": "Buku ajaibnya bersinar.",
+            "ekspresi_wajah": "Berazam dan penuh harapan.",
+            "warna_kulit": "",
+            "gaya_rambut": ""
+          }
+        },
+        {
+          "idInternalSubPanel": "subPanelM2_0_1621188010000",
+          "watak": "BC Penulis Superhero",
+          "aksi": "Terbang melintasi langit bandar dengan jubah merahnya berkibar.",
+          "dialog": "Misi Literasi bermula SEKARANG!",
+          "sudut": "Medium shot, dari sisi.",
+          "gaya": "Dinamik dengan garisan kelajuan.",
+          "penampilan": {
+            "ekspresi_wajah": "Yakin dan tersenyum."
+          }
+        }
+      ]
+    },
+    {
+      "idInternalPanel": "panelUtamaM2_1621188015000_1",
+      "subpanel": [
+        {
+          "idInternalSubPanel": "subPanelM2_1_1621188020000",
+          "watak": "BC Penulis Superhero",
+          "aksi": "Mendarat di sebuah sekolah, disambut oleh kanak-kanak yang teruja.",
+          "dialog": "Adik-adik, mari kita terokai dunia ilmu bersama!",
+          "sudut": "Eye-level shot, menunjukkan interaksi.",
+          "gaya": "Ceria dan berwarna-warni.",
+          "penampilan": {
+            "ekspresi_wajah": "Mesra dan bersemangat."
+          }
+        }
+      ]
+    }
+  ],
+  "karanganLanjutan": "<p>BC Penulis Superhero memulakan misinya untuk menyebarkan semangat membaca dan kreativiti. Dengan buku ajaibnya, dia terbang ke seluruh pelusuk negeri, berdepan dengan cabaran dan memberi inspirasi kepada semua.</p>",
+  "metadataLain": {
+    "tarikhDicipta": "2025-05-16T08:00:00.000Z",
+    "tarikhKemasKiniTerakhir": "2025-05-16T08:00:00.000Z"
+  }
+}

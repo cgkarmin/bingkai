@@ -1,0 +1,75 @@
+{
+  "versiProjek": "1.0",
+  "idProjekUnik": "proj_debug_cyber_wira_001",
+  "infoKomik": {
+    "tajukProjek": "Cyber Wira: Ujian Debugging JSON Eka",
+    "genreUtama": "Cyberpunk / Aksi / Debugging",
+    "sinopsisRingkasProjek": "Ini adalah data ujian untuk memastikan Modul Bina Watak dapat memuat naik dan memaparkan watak dari JSON Eka dengan betul.",
+    "catatanBCJunior": "Data ini disediakan khusus untuk tujuan debugging paparan watak."
+  },
+  "drafCeritaAsasBCJunior": [
+    {
+      "plot_label": "Mula Cerita",
+      "orang_tempat": "Pengguna, di hadapan Modul Bina Watak.",
+      "peristiwa": "Pengguna cuba memuat naik fail JSON Eka yang mengandungi data watak.",
+      "perasaan": "Berharap, sedikit risau.",
+      "dialog_ringkas": "\"Harap kali ini menjadi...\""
+    }
+  ],
+  "senaraiWatak": [
+    {
+      "idUnikWatak": "watak_cyberwira_debug_001",
+      "namaWatak": "Cyber Wira (Debug Mode)",
+      "peranan": "Protagonis Utama",
+      "deskripsiImejRujukan": "Lelaki muda dengan sut perisai teknologi tinggi berwarna hitam matte dengan jalur hijau neon (untuk debugging). Helmet menutup keseluruhan muka dengan visor digital yang bercahaya hijau.",
+      "personalitiKunci": "Sabar, teliti, fokus pada penyelesaian masalah.",
+      "motivasiUtama": "Memastikan aplikasi berfungsi dengan lancar.",
+      "latarBelakangRingkas": "Satu entiti yang wujud untuk mencari pepijat.",
+      "kelebihan": "Kebolehan melihat log console, kesabaran tinggi.",
+      "kelemahan": "Boleh menjadi frustrasi jika paparan tidak kemas kini.",
+      "penampilanVisual": {
+        "jantinaUmurVisual": "Lelaki, umur tidak relevan",
+        "bentukBadan": "Digital",
+        "warnaRambutGaya": "Hijau kod",
+        "warnaMata": "Hijau terang (melalui visor)",
+        "warnaKulit": "Warna skrin (0x00FF00)",
+        "pakaianLazim": "Sut debug hitam dengan jalur hijau neon.",
+        "aksesoriKhas": "Cermin mata pembesar kod, papan kekunci bercahaya.",
+        "ekspresiWajahTipikal": "Fokus, sedikit berkerut dahi.",
+        "ciriUnikVisual": "Jalur hijau neon pada sut sentiasa memaparkan data debug."
+      },
+      "slogan": "Satu baris kod pada satu masa.",
+      "catatanTambahan": "Sangat menghargai output console yang jelas."
+    },
+    {
+      "idUnikWatak": "watak_paparan_bug_002",
+      "namaWatak": "Si Pepijat Paparan",
+      "peranan": "Antagonis Halus",
+      "deskripsiImejRujukan": "Satu entiti kecil, hampir tidak kelihatan, yang suka menyembunyikan elemen DOM.",
+      "personalitiKunci": "Licik, suka bersembunyi, sukar dikesan.",
+      "motivasiUtama": "Menghalang data daripada dipaparkan dengan betul.",
+      "latarBelakangRingkas": "Lahir dari kesilapan logik render yang tidak disengajakan.",
+      "kelebihan": "Kebolehan memanipulasi CSS display, mengosongkan innerHTML tanpa dikesan.",
+      "kelemahan": "Tidak tahan dengan console.log yang terperinci, takut pada hard refresh.",
+      "penampilanVisual": {
+        "jantinaUmurVisual": "Tidak diketahui",
+        "bentukBadan": "Sangat kecil, lutsinar",
+        "warnaRambutGaya": "Tiada",
+        "warnaMata": "Merah kecil (jika dapat dilihat)",
+        "warnaKulit": "Tiada",
+        "pakaianLazim": "Tiada",
+        "aksesoriKhas": "Alat penghilang elemen.",
+        "ekspresiWajahTipikal": "Sinis (jika ada muka).",
+        "ciriUnikVisual": "Kadang-kadang meninggalkan kesan 'undefined' di console."
+      },
+      "slogan": "Nampak tak? Tak nampak kan?",
+      "catatanTambahan": "Selalu menyalahkan cache pelayar."
+    }
+  ],
+  "comicData": [],
+  "karanganLanjutan": "<p>Ini adalah sesi debugging untuk Modul Bina Watak. Kita akan cuba memuat naik JSON Eka ini dan melihat sama ada watak-watak di atas berjaya dipaparkan dalam senarai dan borang edit.</p>",
+  "metadataLain": {
+    "tarikhDicipta": "2025-05-16T11:00:00.000Z",
+    "tarikhKemasKiniTerakhir": "2025-05-16T11:00:00.000Z"
+  }
+}

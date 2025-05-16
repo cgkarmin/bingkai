@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul 1: Draf Cerita & Watak - BC Penulis Superhero</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/pop_art_theme.css"> 
+    <style>
+        /* Gaya tambahan spesifik untuk Modul 1 */
+        .form-label-pop-editor { 
+            font-family: 'Passion One', cursive;
+            font-weight: 700;
+            color: #333;
+            font-size: 0.9rem; 
+            margin-bottom: 0.2rem;
+            display: block; 
+        }
+        .pop-art-textarea-table {
+            min-height: 60px;
+            font-size: 0.85rem;
+        }
+        #senaraiWatakDisplayAreaM1 .list-group-item {
+            font-size: 0.9rem;
+        }
+        .card-custom {
+             border: 3px solid #000;
+             box-shadow: 5px 5px 0px #ccc; 
+             margin-bottom: 1.5rem;
+        }
+        #borangWatakModul1 fieldset {
+            border: 2px solid #005eff !important; 
+            padding: 1rem !important;
+            margin-bottom: 1rem !important;
+            border-radius: 0; 
+        }
+        #borangWatakModul1 fieldset legend {
+            font-size: 1rem !important;
+            padding: 0 0.5rem !important;
+            font-family: 'Bangers', cursive;
+            color: #e60073; 
+            width: auto; 
+            margin-bottom: 0.5rem;
+        }
+         #tajukProjekAktifDisplayM1 { /* Gaya untuk paparan tajuk projek */
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            background-color: #e9ecef;
+            border-radius: 0.25rem;
+            text-align: center;
+            border: 2px dashed #ccc;
+        }
+    </style>
+</head>
+<body class="bc-superhero-body"> 
+
+    <header class="pop-art-header">
+        <h1><i class="bi bi-journal-richtext"></i> Modul 1: Draf Cerita & Watak</h1> 
+        <p class="subtitle">Langkah Permulaan: Idea Asas, Cerita & Pembangunan Watak</p>
+    </header>
+
+    <main class="container mt-4">
+        <div id="tajukProjekAktifDisplayM1" class="pop-art-text-small">Memuatkan info projek...</div>
+
+        <div class="card card-custom" id="maklumatProjekCard">
+            <div class="card-header pop-art-card-header">
+                <i class="bi bi-info-circle-fill me-2"></i>Maklumat Asas Projek (JSON Eka)
+            </div>
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="inputTajukProjekM1" class="form-label-pop-editor">Tajuk Projek:</label>
+                        <input type="text" id="inputTajukProjekM1" class="form-control pop-art-input" placeholder="Cth: Adiwira Penyelamat Kota">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputGenreUtamaM1" class="form-label-pop-editor">Genre Utama:</label>
+                        <input type="text" id="inputGenreUtamaM1" class="form-control pop-art-input" placeholder="Cth: Aksi, Sains Fiksyen">
+                    </div>
+                    <div class="col-12">
+                        <label for="inputSinopsisM1" class="form-label-pop-editor">Sinopsis Ringkas Projek (Pilihan):</label>
+                        <textarea id="inputSinopsisM1" class="form-control pop-art-textarea" rows="3" placeholder="Terangkan secara ringkas mengenai keseluruhan projek ini..."></textarea>
+                    </div>
+                    <div class="col-12">
+                        <label for="inputCatatanBCJM1" class="form-label-pop-editor">Catatan Awal / BC Junior (Pilihan):</label>
+                        <textarea id="inputCatatanBCJM1" class="form-control pop-art-textarea" rows="2" placeholder="Catatan dari proses awal atau BC Junior..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card card-custom" id="alatTindakanUtamaCard">
+            <div class="card-header pop-art-card-header">
+                <i class="bi bi-tools me-2"></i>Alat & Tindakan Projek
+            </div>
+            <div class="card-body text-center">
+                <div class="d-flex flex-wrap justify-content-center align-items-center gap-2"> 
+                    <input type="file" id="inputFailJsonEkaM1" accept=".json" style="display:none;">
+                    <button class="btn btn-pop-art-action-main mb-2" type="button" id="btnBukaProjekJsonEkaM1">
+                        <i class="bi bi-folder2-open"></i> Buka Projek (JSON Eka)
+                    </button>
+                    <button class="btn btn-primary mb-2" type="button" id="btnMuatTurunJsonEkaM1">
+                        <i class="bi bi-download"></i> Muat Turun Projek Penuh (JSON Eka)
+                    </button>
+                    <div class="dropup d-inline-block mb-2"> 
+                        <button class="btn btn-info text-white dropdown-toggle" type="button" id="adunCeritaDropdownM1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-magic"></i> Adun & Salin Prompt AI (Jadual)
+                        </button>
+                        <ul class="dropdown-menu pop-art-dropdown-menu" aria-labelledby="adunCeritaDropdownM1">
+                            <li><button class="dropdown-item" type="button" id="btnAdunGeminiM1">Untuk Gemini</button></li>
+                            <li><button class="dropdown-item" type="button" id="btnAdunChatGPTM1">Untuk ChatGPT</button></li>
+                            <li><button class="dropdown-item" type="button" id="btnAdunClaudeM1">Untuk Claude</button></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><button class="dropdown-item" type="button" id="btnAdunUmumM1">Salin Prompt Umum Sahaja</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="card card-custom" id="papanCeritaCard">
+                    <div class="card-header pop-art-card-header">
+                        <i class="bi bi-table me-2"></i>Papan Cerita Asas (Draf Cerita Asas)
+                    </div>
+                    <div class="card-body table-responsive"> 
+                        <table id="bcTableM1" class="table table-bordered pop-art-table"> 
+                            <thead>
+                                <tr>
+                                    </tr>
+                            </thead>
+                            <tbody id="bcBodyM1">
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card card-custom" id="editorKaranganCard">
+                    <div class="card-header pop-art-card-header d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-file-earmark-richtext-fill me-2"></i>Editor Karangan Lanjutan (Karangan Lanjutan)</span>
+                        <button class="btn btn-sm btn-outline-light" id="btnToggleEditorKaranganM1" title="Buka/Tutup Editor">
+                            <i class="bi bi-arrows-expand"></i> Buka/Tutup
+                        </button>
+                    </div>
+                    <div id="richEditorContainerM1" class="card-body" style="display:none;">
+                        <div id="richEditorM1" contenteditable="true" class="form-control pop-art-textarea" style="min-height: 200px;">
+                            Tampal hasil adunan cerita dari AI atau tulis karangan penuh di sini...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="card card-custom" id="borangWatakModul1Card">
+                    <div class="card-header pop-art-card-header" id="headerBorangWatakM1">
+                        <i class="bi bi-person-plus-fill me-2"></i>Tambah / Edit Watak
+                    </div>
+                    <div class="card-body">
+                        <form id="borangWatakM1">
+                            <input type="hidden" id="idUnikWatakM1">
+                            <div class="mb-3">
+                                <label for="namaWatakM1" class="form-label-pop-editor">Nama Watak:</label>
+                                <input type="text" class="form-control pop-art-input" id="namaWatakM1" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="perananM1" class="form-label-pop-editor">Peranan Watak:</label>
+                                <select class="form-select pop-art-select" id="perananM1">
+                                    <option value="">-- Sila Pilih --</option>
+                                    <option value="Protagonis Utama">Protagonis Utama</option>
+                                    <option value="Antagonis Utama">Antagonis Utama</option>
+                                    <option value="Watak Sokongan">Watak Sokongan</option>
+                                    <option value="Watak Sampingan">Watak Sampingan</option>
+                                    <option value="Mentor">Mentor</option>
+                                    <option value="Lain-lain">Lain-lain</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="deskripsiImejRujukanM1" class="form-label-pop-editor">Deskripsi Imej Rujukan (Untuk AI):</label>
+                                <textarea class="form-control pop-art-textarea" id="deskripsiImejRujukanM1" rows="2" placeholder="Cth: Lelaki sasa, kostum merah..."></textarea>
+                            </div>
+                            
+                            <fieldset class="border p-3 mb-3">
+                                <legend class="w-auto px-2">Butiran Perwatakan</legend>
+                                <div class="mb-2">
+                                    <label for="personalitiKunciM1" class="form-label-pop-editor">Personaliti Kunci:</label>
+                                    <input type="text" class="form-control pop-art-input" id="personalitiKunciM1" placeholder="Cth: Berani, Kelakar">
+                                </div>
+                                <div class="mb-2">
+                                    <label for="motivasiUtamaM1" class="form-label-pop-editor">Motivasi Utama:</label>
+                                    <textarea class="form-control pop-art-textarea" id="motivasiUtamaM1" rows="2"></textarea>
+                                </div>
+                                </fieldset>
+
+                            <fieldset class="border p-3 mb-3">
+                                <legend class="w-auto px-2">Penampilan Visual</legend>
+                                 <div class="row g-2">
+                                    <div class="col-md-6 mb-2">
+                                        <label for="jantinaUmurVisualM1" class="form-label-pop-editor">Jantina & Umur Visual:</label>
+                                        <input type="text" class="form-control pop-art-input" id="jantinaUmurVisualM1" placeholder="Cth: Lelaki, 30-an">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="bentukBadanM1" class="form-label-pop-editor">Bentuk Badan:</label>
+                                        <input type="text" class="form-control pop-art-input" id="bentukBadanM1">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="warnaRambutGayaM1" class="form-label-pop-editor">Rambut (Warna & Gaya):</label>
+                                        <input type="text" class="form-control pop-art-input" id="warnaRambutGayaM1">
+                                    </div>
+                                     <div class="col-md-6 mb-2">
+                                        <label for="warnaMataM1" class="form-label-pop-editor">Warna Mata:</label>
+                                        <input type="text" class="form-control pop-art-input" id="warnaMataM1">
+                                    </div>
+                                     <div class="col-md-6 mb-2">
+                                        <label for="warnaKulitM1" class="form-label-pop-editor">Warna Kulit:</label>
+                                        <input type="text" class="form-control pop-art-input" id="warnaKulitM1">
+                                    </div>
+                                     <div class="col-md-6 mb-2">
+                                        <label for="pakaianLazimM1" class="form-label-pop-editor">Pakaian Lazim/Kostum:</label>
+                                        <input type="text" class="form-control pop-art-input" id="pakaianLazimM1">
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="aksesoriKhasM1" class="form-label-pop-editor">Aksesori Khas:</label>
+                                    <input type="text" class="form-control pop-art-input" id="aksesoriKhasM1">
+                                </div>
+                                </fieldset>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                <button type="button" class="btn btn-secondary me-md-2" id="btnBatalEditTambahM1">
+                                    <i class="bi bi-x-circle"></i> Batal / Baru
+                                </button>
+                                <button type="submit" class="btn btn-success" id="btnSimpanWatakM1"> <i class="bi bi-save-fill"></i> Simpan Watak
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card card-custom" id="senaraiWatakCard">
+                    <div class="card-header pop-art-card-header">
+                        <i class="bi bi-people-fill me-2"></i>Senarai Watak Sedia Ada
+                    </div>
+                    <div class="card-body">
+                        <div id="senaraiWatakDisplayAreaM1">
+                            <p class="text-muted pop-art-text">Tiada watak dicipta lagi untuk projek ini.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5 mb-4">
+            <button class="btn btn-pop-art-action-main btn-lg" id="btnSimpanDanTeruskanKeModul2">
+                <i class="bi bi-arrow-right-circle-fill"></i> Simpan Projek & Ke Susun Panel
+            </button>
+        </div>
+    </main>
+
+    <footer class="footer-pop-art mt-5">
+        <p>&copy; <span id="currentYearFooterM1"></span> BC Penulis Superhero. Hak Cipta Terpelihara.</p>
+        <p><a href="../index.html" class="footer-link-back"><i class="bi bi-house-fill"></i> Papan Pemuka Utama</a></p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script_modul1_draf_watak.js"></script> 
+    <script>
+        if(document.getElementById("currentYearFooterM1")) {
+            document.getElementById("currentYearFooterM1").textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>

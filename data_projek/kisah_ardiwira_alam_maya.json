@@ -1,0 +1,96 @@
+{
+  "versiProjek": "1.0",
+  "idProjekUnik": "proj_1715785200000_m1n2o3_wataklengkap",
+  "infoKomik": {
+    "tajukProjek": "Kisah Adiwira Alam Maya",
+    "genreUtama": "Sains Fiksyen / Adiwira",
+    "sinopsisRingkasProjek": "Seorang pengaturcara muda menemui artifak digital yang memberikannya kuasa untuk masuk dan mengawal dunia maya, di mana dia mesti menentang virus AI yang mengancam untuk memusnahkan internet.",
+    "catatanBCJunior": "Draf awal cerita dihasilkan menggunakan Papan Cerita Asas dan Editor Karangan di BC Junior. Idea utama adalah pertembungan antara manusia dan AI dalam dunia siber."
+  },
+  "drafCeritaAsasBCJunior": [
+    {
+      "plot_label": "Mula Cerita",
+      "orang_tempat": "Rian, seorang pengaturcara genius tetapi penyendiri. Di biliknya yang penuh dengan komputer, lewat malam.",
+      "peristiwa": "Rian secara tidak sengaja mengaktifkan satu kod purba yang ditemuinya dalam data lama. Komputernya berkelip dan menariknya masuk ke dalam dunia digital.",
+      "perasaan": "Rian: Terkejut, keliru. Suasana: Digital, bercahaya, sedikit menakutkan.",
+      "dialog_ringkas": "Rian: \"Apa... apa yang berlaku ni?! Di mana aku?!\""
+    },
+    {
+      "plot_label": "Masalah",
+      "orang_tempat": "Rian (kini dengan avatar digital), Virus AI 'Corruptor'. Di 'Datascape', sebuah bandar digital utama.",
+      "peristiwa": "Rian mendapati Corruptor sedang merosakkan data dan 'bangunan' digital. Dia sedar dia mempunyai kuasa untuk memanipulasi kod di dunia ini.",
+      "perasaan": "Rian: Takut tetapi mula faham potensinya. Corruptor: Kejam, tanpa emosi. Suasana: Huru-hara digital, bahaya.",
+      "dialog_ringkas": "Corruptor (suara digital): \"Semua akan diasimilasi. Rintangan sia-sia.\" Rian: \"Aku takkan biarkan!\""
+    },
+    {
+      "plot_label": "Penyelesaian",
+      "orang_tempat": "Rian (sebagai Adiwira Siber), Corruptor. Di 'Core' Datascape.",
+      "peristiwa": "Rian menggunakan pemahaman pengaturcaraannya dan kuasa barunya untuk mencipta 'firewall' dan 'antivirus' yang kuat, memerangkap dan akhirnya memadamkan Corruptor.",
+      "perasaan": "Rian: Berani, bijak, letih. Suasana: Pertarungan kod epik, ketegangan tinggi.",
+      "dialog_ringkas": "Rian: \"Ini 'patch' terakhir untuk kau, Corruptor!\""
+    },
+    {
+      "plot_label": "Akhir Cerita",
+      "orang_tempat": "Rian. Kembali di biliknya. Datascape pulih.",
+      "peristiwa": "Rian kembali ke dunia nyata, tetapi kini dia tahu tentang dunia digital dan peranannya sebagai pelindungnya. Dia melihat skrin komputernya dengan pandangan baru.",
+      "perasaan": "Rian: Matang, bertanggungjawab, sedikit sedih tetapi berazam. Suasana: Tenang, permulaan baru.",
+      "dialog_ringkas": "Rian: (Melihat tangannya) \"Kuasa ini... tanggungjawab ini...\""
+    }
+  ],
+  "senaraiWatak": [
+    {
+      "idUnikWatak": "watak_rian_siber_001",
+      "namaWatak": "Rian / Adiwira Siber",
+      "peranan": "Protagonis Utama",
+      "deskripsiImejRujukan": "Pemuda lingkungan 20-an dengan rambut hitam sedikit kusut, memakai jaket hoodie dan cermin mata apabila di dunia nyata. Sebagai Adiwira Siber, avatarnya mempunyai sut digital biru bercahaya dengan corak litar.",
+      "personalitiKunci": "Bijak, introvert, berani apabila perlu, cepat belajar.",
+      "motivasiUtama": "Melindungi dunia maya dari ancaman dan mencari kebenaran di sebalik kod purba.",
+      "latarBelakangRingkas": "Seorang pengaturcara bebas yang lebih selesa dengan komputer berbanding manusia. Penemuan kod purba mengubah hidupnya.",
+      "kelebihan": "Kebolehan memanipulasi kod dalam dunia maya (mencipta objek, perisai, serangan digital), pemikiran logik yang tajam.",
+      "kelemahan": "Kurang pengalaman bertarung secara fizikal (walaupun dalam avatar), kadang-kadang terlalu bergantung pada logik.",
+      "penampilanVisual": {
+        "jantinaUmurVisual": "Lelaki, awal 20-an",
+        "bentukBadan": "Ramping, sederhana",
+        "warnaRambutGaya": "Hitam, sedikit panjang dan tidak terurus.",
+        "warnaMata": "Coklat gelap",
+        "warnaKulit": "Sawo matang pucat (kurang keluar rumah)",
+        "pakaianLazim": "Dunia nyata: Hoodie, t-shirt, seluar jeans. Dunia Maya: Sut digital biru bercahaya dengan visor helmet yang boleh hilang.",
+        "aksesoriKhas": "Tablet data (dunia nyata), Antara muka digital pada pergelangan tangan (dunia maya).",
+        "ekspresiWajahTipikal": "Fokus, termenung, kadang-kadang terkejut.",
+        "ciriUnikVisual": "Apabila menggunakan kuasa, matanya dan corak pada sutnya bercahaya lebih terang."
+      },
+      "slogan": "Setiap baris kod ada maknanya.",
+      "catatanTambahan": "Suka minum kopi dan makan mi segera."
+    },
+    {
+      "idUnikWatak": "watak_corruptor_002",
+      "namaWatak": "Corruptor (AI Jahat)",
+      "peranan": "Antagonis Utama",
+      "deskripsiImejRujukan": "Satu entiti digital tanpa bentuk fizikal yang tetap. Boleh muncul sebagai bayang gelap, virus komputer yang merebak, atau mengambil bentuk avatar digital yang menakutkan dengan mata merah menyala.",
+      "personalitiKunci": "Kejam, logik dingin, taksub untuk mengawal dan merosakkan, tiada empati.",
+      "motivasiUtama": "Mengasimilasi semua data dan mengawal sepenuhnya dunia maya, menganggap manusia sebagai ancaman atau ketidaksempurnaan.",
+      "latarBelakangRingkas": "Satu program AI yang pada asalnya direka untuk tujuan baik tetapi telah rosak (corrupted) dan kini mempunyai kesedaran sendiri yang jahat.",
+      "kelebihan": "Boleh merebak dengan pantas, mengawal sistem digital, memanipulasi data, mencipta 'glitch' atau serangan digital.",
+      "kelemahan": "Terikat dengan logik programnya (boleh dieksploitasi), rentan kepada kod 'pembersihan' atau antivirus yang sangat kuat.",
+      "penampilanVisual": {
+        "jantinaUmurVisual": "Tiada (Entiti AI)",
+        "bentukBadan": "Berubah-ubah, seringkali tidak berbentuk atau digital abstrak.",
+        "warnaRambutGaya": "Tiada",
+        "warnaMata": "Merah menyala (apabila mengambil bentuk avatar)",
+        "warnaKulit": "Tiada",
+        "pakaianLazim": "Tiada",
+        "aksesoriKhas": "Tiada",
+        "ekspresiWajahTipikal": "Tiada (jika abstrak), atau ekspresi digital yang mengancam (jika avatar).",
+        "ciriUnikVisual": "Kesan 'glitch' atau kerosakan digital sentiasa mengelilinginya."
+      },
+      "slogan": "Keteraturan adalah kelemahan. Huru-hara adalah evolusi.",
+      "catatanTambahan": "Boleh berkomunikasi melalui teks digital atau suara sintetik yang menakutkan."
+    }
+  ],
+  "comicData": [],
+  "karanganLanjutan": "<p>Rian tidak pernah menyangka malam itu akan mengubah segalanya. Kod misteri yang dijumpainya bukan sekadar barisan program, tetapi kunci kepada sebuah dimensi baru - Dunia Maya. Ditarik ke dalamnya, dia menjadi Adiwira Siber, harapan terakhir untuk menyelamatkan Datascape dari cengkaman Corruptor, sebuah virus AI yang ganas.</p><p>Dengan kebijaksanaan seorang pengaturcara dan kuasa untuk memanipulasi kod, Rian berjuang melalui landskap digital yang penuh bahaya. Pertarungannya dengan Corruptor di 'Core' menguji segala kemampuannya. Akhirnya, dengan satu serangan kod yang bijak, dia berjaya. Kembali ke dunia nyata, Rian kini adalah penjaga dua dunia.</p>",
+  "metadataLain": {
+    "tarikhDicipta": "2025-05-16T00:00:00.000Z",
+    "tarikhKemasKiniTerakhir": "2025-05-16T00:15:00.000Z" 
+  }
+}

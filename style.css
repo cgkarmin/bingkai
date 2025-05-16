@@ -1,0 +1,107 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #5a2d82; /* Warna tema */
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    border-bottom: 3px solid #3a1d52;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+.nav-button {
+    background-color: #7a4dab;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px 5px 0 0;
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+}
+
+.nav-button:hover {
+    background-color: #6a3d9b;
+}
+
+.nav-button.active {
+    background-color: #3a1d52; /* Warna yang lebih gelap untuk aktif */
+    font-weight: bold;
+}
+
+.file-controls {
+    margin-top: 15px;
+}
+
+.file-controls button {
+    background-color: #4CAF50; /* Hijau */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.file-controls button:hover {
+    background-color: #45a049;
+}
+
+
+main {
+    padding: 20px;
+}
+
+.app-section {
+    display: none; /* Sembunyikan semua section secara default */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.app-section.active {
+    display: block; /* Tunjukkan section yang aktif */
+}
+
+.app-section h2 {
+    color: #5a2d82;
+    margin-top: 0;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.placeholder {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    min-height: 150px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+}
+
+.placeholder textarea {
+    width: calc(100% - 40px); /* Ambil lebar penuh tolak padding */
+    margin-top: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-family: monospace;
+    font-size: 0.9em;
+}

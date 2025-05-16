@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul 2: Susun Panel Komik - BC Penulis Superhero</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/pop_art_theme.css"> <style>
+        /* Gaya spesifik untuk modul2_susun_panel.html */
+        .panel-utama-card {
+            border: 4px solid #000000;
+            border-radius: 0;
+            margin-bottom: 2rem;
+            box-shadow: 6px 6px 0px #000000;
+            background-color: #f8f9fa;
+        }
+        .panel-utama-card .card-header {
+            font-family: 'Bangers', cursive;
+            background-color: #e60073; /* Magenta */
+            color: white;
+            font-size: 1.5rem;
+            border-bottom: 4px solid #000;
+        }
+        .subpanel-container {
+            padding: 1rem;
+            background-color: #ffffff;
+        }
+        .sub-panel-card {
+            border: 2px solid #005eff; /* Biru */
+            border-radius: 0;
+            margin-bottom: 1rem;
+            box-shadow: 3px 3px 0px #cccccc;
+            background-color: #e7f3ff;
+        }
+        .sub-panel-card .card-header {
+            font-family: 'Passion One', cursive;
+            background-color: #007bff; 
+            color: white;
+            font-size: 1.1rem;
+            border-bottom: 2px solid #005eff;
+        }
+        .form-label-pop-editor { 
+            font-family: 'Passion One', cursive;
+            font-weight: 700;
+            color: #333;
+            font-size: 0.9rem; 
+            margin-bottom: 0.2rem;
+            display: block; 
+        }
+        #editorAreaModul2 .form-control, 
+        #editorAreaModul2 .form-select {
+            font-size: 0.85rem; 
+            padding: 0.3rem 0.5rem;
+            border-radius: 0;
+            border-width: 2px;
+        }
+        #editorAreaModul2 fieldset legend {
+            font-size: 0.95rem !important;
+            padding: 0 0.4rem !important;
+        }
+        #editorAreaModul2 fieldset {
+            padding: 0.75rem !important;
+        }
+        #tajukProjekAktifDisplayM2 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 1.5rem;
+            padding: 0.75rem;
+            background-color: #fff3cd; /* Kuning lembut untuk perhatian */
+            border: 2px dashed #ffeeba;
+            border-radius: 0.25rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="bc-superhero-body">
+
+    <header class="pop-art-header">
+        <h1><i class="bi bi-layout-wtf"></i> Modul 2: Susun Panel Komik</h1>
+        <p class="subtitle">Langkah 3: Rangka Babak, Panel & Perincian Visual Anda</p>
+    </header>
+
+    <main class="container mt-4">
+        <div id="tajukProjekAktifDisplayM2" class="pop-art-text">Memuatkan info projek...</div>
+
+        <div class="card card-custom mb-4">
+            <div class="card-header pop-art-card-header">
+                <i class="bi bi-gear-wide-connected me-2"></i>Panel Kawalan Editor Panel
+            </div>
+            <div class="card-body">
+                <div class="row g-2 align-items-end">
+                    <div class="col-lg-3 col-md-6 mb-2">
+                        <button class="btn btn-success w-100" id="btnTambahPanelUtamaM2">
+                            <i class="bi bi-plus-square-fill"></i> Tambah Panel Utama
+                        </button>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-2">
+                        <input type="file" id="inputMuatNaikJsonEkaM2" accept=".json" style="display: none;">
+                        <button class="btn btn-primary w-100" id="btnMuatNaikJsonEkaM2Trigger">
+                            <i class="bi bi-folder2-open"></i> Buka Projek (JSON Eka)
+                        </button>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mb-2">
+                        <button class="btn btn-secondary w-100" id="btnMuatTurunJsonEkaM2">
+                            <i class="bi bi-download"></i> Muat Turun Projek (JSON Eka)
+                        </button>
+                    </div>
+                     <div class="col-lg-3 col-md-6 mb-2">
+                        <button class="btn btn-danger w-100" id="btnKosongkanSemuaPanelUtamaM2">
+                            <i class="bi bi-eraser-fill"></i> Kosongkan Semua Panel
+                        </button>
+                    </div>
+                </div>
+                </div>
+        </div>
+
+        <div id="editorAreaModul2" class="mt-4">
+            <p id="placeholderPanelUtamaM2" class="text-center pop-art-text lead">Belum ada panel utama. Klik "Tambah Panel Utama" untuk bermula atau buka projek JSON Eka.</p>
+            </div>
+
+        <div class="text-center mt-5 mb-4">
+            <button class="btn btn-pop-art-action-main btn-lg" id="btnSimpanDanKeModul3">
+                <i class="bi bi-arrow-right-circle-fill"></i> Simpan Panel & Ke Jana Prompt AI
+            </button>
+        </div>
+    </main>
+
+    <footer class="footer-pop-art mt-5">
+        <p>&copy; <span id="currentYearFooterM2"></span> BC Penulis Superhero. Hak Cipta Terpelihara.</p>
+        <p>
+            <a href="../modul1_draf_watak/modul1_draf_watak.html" class="footer-link-back me-3"> <i class="bi bi-arrow-left-square-fill"></i> Kembali ke Draf & Watak
+            </a>
+            <a href="../index.html" class="footer-link-back"><i class="bi bi-house-fill"></i> Papan Pemuka Utama</a>
+        </p>
+    </footer>
+
+    <template id="templatePanelUtamaM2">
+        <div class="panel-utama-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span class="panel-utama-title h5 mb-0">Panel Utama #</span> 
+                <div>
+                    <button class="btn btn-sm btn-success me-2 btnTambahSubPanelM2" title="Tambah Sub-Panel">
+                        <i class="bi bi-plus-circle-dotted"></i> Tambah Sub-Panel
+                    </button>
+                    <button class="btn btn-sm btn-danger btnPadamPanelUtamaM2" title="Padam Panel Utama Ini">
+                        <i class="bi bi-trash-fill"></i> Padam Panel Utama
+                    </button>
+                </div>
+            </div>
+            <div class="card-body subpanel-container">
+                <p class="text-muted pop-art-text placeholder-subpanelM2">Belum ada sub-panel. Klik "Tambah Sub-Panel".</p>
+                </div>
+        </div>
+    </template>
+
+    <template id="templateSubPanelM2">
+        <div class="sub-panel-card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span class="subpanel-title fw-bold">Sub-Panel #</span>
+                <button class="btn btn-sm btn-outline-danger border-2 btnPadamSubPanelM2" title="Padam Sub-Panel Ini">
+                    <i class="bi bi-x-lg"></i> 
+                </button>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label-pop-editor">Watak:</label>
+                        <input type="text" list="senaraiWatakDatalistM2" class="form-control pop-art-input input-watak" placeholder="Nama Watak">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label-pop-editor">Aksi:</label>
+                        <input type="text" class="form-control pop-art-input input-aksi" placeholder="Deskripsi aksi">
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label-pop-editor">Dialog:</label>
+                    <textarea class="form-control pop-art-textarea input-dialog" rows="2" placeholder="Dialog watak"></textarea>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label-pop-editor">Sudut Pandang Kamera:</label>
+                        <input type="text" class="form-control pop-art-input input-sudut" placeholder="Cth: Close-up, Wide Shot">
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <label class="form-label-pop-editor">Gaya Visual Panel:</label>
+                        <input type="text" class="form-control pop-art-input input-gaya" placeholder="Cth: Realistik, Kartun, Gelap">
+                    </div>
+                </div>
+                <fieldset class="border p-2 mt-2 mb-2">
+                    <legend class="w-auto px-2 h6">Penampilan Spesifik Watak (Dalam Panel Ini)</legend>
+                    <p class="pop-art-text-small text-muted mb-2">Isi jika berbeza dari penampilan umum watak.</p>
+                    <div class="row g-2">
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label-pop-editor">Warna Pakaian:</label>
+                            <input type="text" class="form-control pop-art-input input-penampilan-warna_pakaian">
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label-pop-editor">Jenis Pakaian:</label>
+                            <input type="text" class="form-control pop-art-input input-penampilan-jenis_pakaian">
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label-pop-editor">Aksesori Tambahan:</label>
+                            <input type="text" class="form-control pop-art-input input-penampilan-aksesori">
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label-pop-editor">Ekspresi Wajah:</label>
+                            <input type="text" class="form-control pop-art-input input-penampilan-ekspresi_wajah" placeholder="Sangat penting!">
+                        </div>
+                         <div class="col-md-6 mb-2">
+                            <label class="form-label-pop-editor">Warna Kulit (jika berubah):</label>
+                            <input type="text" class="form-control pop-art-input input-penampilan-warna_kulit">
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label-pop-editor">Gaya Rambut (jika berubah):</label>
+                            <input type="text" class="form-control pop-art-input input-penampilan-gaya_rambut">
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </template>
+
+    <datalist id="senaraiWatakDatalistM2"></datalist>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script_modul2_susun_panel.js"></script> 
+    <script>
+        if(document.getElementById("currentYearFooterM2")) {
+            document.getElementById("currentYearFooterM2").textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>

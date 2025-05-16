@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul 3: Jana Prompt AI - BC Penulis Superhero</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/pop_art_theme.css"> <style>
+        /* Gaya spesifik untuk modul3_jana_prompt.html */
+        #promptDisplayAreaM3 .card {
+            margin-bottom: 1.5rem;
+            border: 3px solid #000;
+            border-radius: 0;
+            box-shadow: 5px 5px 0px #6c757d; /* Kelabu gelap untuk kontras */
+        }
+        #promptDisplayAreaM3 .card-header {
+             font-family: 'Bangers', cursive;
+             background-color: #198754; /* Hijau untuk prompt AI */
+             color: white;
+             border-bottom: 3px solid #000;
+             font-size: 1.2rem;
+        }
+        #promptDisplayAreaM3 .card-body {
+             background-color: #f8f9fa;
+         }
+        #promptDisplayAreaM3 textarea {
+            width: 100%;
+            min-height: 120px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            border-radius: 0;
+            border: 2px dashed #ccc;
+            background-color: #fff;
+            padding: 10px;
+        }
+        .btn-copy-promptM3 {
+            font-size: 0.85rem;
+            padding: 0.3rem 0.6rem;
+        }
+        #tajukProjekAktifDisplayM3 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 1.5rem;
+            padding: 0.75rem;
+            background-color: #e7f3ff; /* Biru lembut */
+            border: 2px dashed #007bff;
+            border-radius: 0.25rem;
+            text-align: center;
+        }
+        .prompt-options label {
+            font-size: 0.9rem;
+        }
+        .prompt-options select, .prompt-options input {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body class="bc-superhero-body">
+
+    <header class="pop-art-header">
+        <h1><i class="bi bi-stars"></i> Modul 3: Jana Prompt AI</h1>
+        <p class="subtitle">Langkah Akhir: Dapatkan Prompt Teks untuk Visual Komik Anda</p>
+    </header>
+
+    <main class="container mt-4">
+        <div id="tajukProjekAktifDisplayM3" class="pop-art-text">Memuatkan info projek...</div>
+
+        <div class="card card-custom mb-4">
+            <div class="card-header pop-art-card-header">
+                <i class="bi bi-robot me-2"></i>Kawalan Penjanaan Prompt
+            </div>
+            <div class="card-body">
+                <p class="pop-art-text text-center">Data panel komik dari modul sebelumnya sepatutnya telah dimuatkan.</p>
+                
+                <div class="row g-3 mb-3 prompt-options align-items-end">
+                    <div class="col-md-5">
+                        <label for="pilihanGayaPromptM3" class="form-label-pop-editor">Pilihan Gaya Tambahan (Untuk Semua Prompt):</label>
+                        <select id="pilihanGayaPromptM3" class="form-select pop-art-select">
+                            <option value="">-- Tiada Gaya Tambahan --</option>
+                            <option value="gaya manga hitam putih">Gaya Manga Hitam Putih</option>
+                            <option value="gaya komik amerika klasik">Gaya Komik Amerika Klasik</option>
+                            <option value="gaya cat air lembut">Gaya Cat Air Lembut</option>
+                            <option value="gaya realistik sinematik">Gaya Realistik Sinematik</option>
+                            <option value="gaya pixel art retro">Gaya Pixel Art Retro</option>
+                            <option value="gaya fantasi epik">Gaya Fantasi Epik</option>
+                            <option value="gaya seram gelap">Gaya Seram Gelap</option>
+                            </select>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="inputKataKunciTambahanM3" class="form-label-pop-editor">Kata Kunci Tambahan (Untuk Semua Prompt):</label>
+                        <input type="text" id="inputKataKunciTambahanM3" class="form-control pop-art-input" placeholder="Cth: pencahayaan dramatik, terperinci">
+                    </div>
+                    <div class="col-md-2 d-grid">
+                         <button class="btn btn-pop-art-action-main" id="btnJanaSemuaPromptM3">
+                            <i class="bi bi-magic"></i> Jana Prompt
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="loadingIndicatorM3" class="spinner-border text-primary mt-3 mx-auto" role="status" style="display: none;">
+                    <span class="visually-hidden">Memproses...</span>
+                </div>
+                <p id="summaryPanelDataM3" class="mt-2 text-muted pop-art-text-small text-center"></p>
+                
+                <hr class="my-3">
+                <div class="d-flex flex-wrap justify-content-center align-items-center gap-2">
+                    <button class="btn btn-secondary mb-2" id="btnMuatTurunSemuaPromptTxtM3">
+                        <i class="bi bi-file-earmark-text-fill"></i> Muat Turun Semua Prompt (.txt)
+                    </button>
+                    <input type="file" id="inputMuatNaikJsonEkaM3" accept=".json" style="display: none;">
+                    <button class="btn btn-primary mb-2" id="btnMuatNaikJsonEkaM3Trigger">
+                        <i class="bi bi-folder2-open"></i> Buka Projek (JSON Eka)
+                    </button>
+                    <button class="btn btn-outline-secondary mb-2" id="btnMuatTurunJsonEkaM3">
+                        <i class="bi bi-archive-fill"></i> Muat Turun Projek Penuh (JSON Eka)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="pop-art-text text-center mt-4 mb-3">Hasil Prompt AI</h2>
+
+        <div id="promptDisplayAreaM3" class="mt-3">
+            <p id="placeholderPromptsM3" class="text-center pop-art-text lead">Belum ada prompt dijana. Sila klik butang "Jana Prompt".</p>
+            </div>
+
+    </main>
+
+    <footer class="footer-pop-art mt-5">
+        <p>&copy; <span id="currentYearFooterM3"></span> BC Penulis Superhero. Hak Cipta Terpelihara.</p>
+        <p>
+            <a href="../modul2_susun_panel/modul2_susun_panel.html" class="footer-link-back me-3"> <i class="bi bi-arrow-left-square-fill"></i> Kembali ke Susun Panel
+            </a>
+            <a href="../index.html" class="footer-link-back"><i class="bi bi-house-fill"></i> Papan Pemuka Utama</a>
+        </p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script_modul3_jana_prompt.js"></script> 
+    <script>
+        if(document.getElementById("currentYearFooterM3")) {
+            document.getElementById("currentYearFooterM3").textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>

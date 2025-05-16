@@ -1,0 +1,280 @@
+/* pop_art_theme.css */
+/* Tema Utama untuk Aplikasi BC Penulis Superhero Suite */
+
+/* Import Font (jika belum ada dalam HTML utama atau mahu spesifik di sini) */
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Passion+One:wght@400;700&display=swap');
+
+/* :root {
+    --pop-art-primary: #e60073; / * Magenta * /
+    --pop-art-secondary: #007bff; / * Biru * /
+    --pop-art-accent: #ffc107; / * Kuning * /
+    --pop-art-dark: #000000;
+    --pop-art-light: #ffffff;
+    --pop-art-success: #198754; / * Hijau * /
+    --pop-art-info: #0dcaf0; / * Cyan * /
+    --pop-art-warning: #ffc107; / * Kuning * /
+    --pop-art-danger: #dc3545; / * Merah * /
+} */
+
+body.bc-superhero-body {
+    font-family: 'Arial', sans-serif; /* Font asas yang mudah dibaca */
+    background-color: #f0f2f5; /* Latar belakang sedikit kelabu lembut */
+    color: #333;
+    line-height: 1.6;
+}
+
+.pop-art-header {
+    background: linear-gradient(45deg, #e60073, #ffc107, #007bff); /* Gradient Pop Art */
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    border-bottom: 8px solid #000000;
+    margin-bottom: 2rem;
+}
+
+.pop-art-header h1 {
+    font-family: 'Bangers', cursive;
+    font-size: 3.2rem;
+    margin-bottom: 0.25rem;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.pop-art-header .subtitle {
+    font-family: 'Passion One', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.card-custom {
+    border: 3px solid #000000;
+    border-radius: 0; /* Sudut tajam, ciri Pop Art */
+    box-shadow: 6px 6px 0px #000000;
+    margin-bottom: 1.5rem;
+    background-color: #ffffff;
+}
+
+.pop-art-card-header {
+    font-family: 'Bangers', cursive;
+    background-color: #000000; /* Header kad utama hitam */
+    color: #ffffff;
+    font-size: 1.6rem;
+    padding: 0.75rem 1.25rem;
+    border-bottom: 3px solid #000000;
+    display: flex;
+    align-items: center;
+}
+.pop-art-card-header .bi {
+    margin-right: 0.5rem;
+    font-size: 1.5rem; /* Besarkan sedikit ikon di header */
+}
+
+
+/* Variasi warna header kad untuk modul berbeza */
+.pop-art-card-header-alt1 { /* Contoh: untuk kad info */
+    background-color: #007bff; /* Biru */
+}
+.pop-art-card-header-alt2 { /* Contoh: untuk kad lain */
+    background-color: #e60073; /* Magenta */
+}
+.pop-art-card-header-alt3 { /* Contoh: untuk kad lain */
+    background-color: #198754; /* Hijau */
+}
+
+
+.form-label-pop-editor {
+    font-family: 'Passion One', sans-serif;
+    font-weight: 700;
+    color: #333333;
+    font-size: 1rem; /* Besarkan sedikit label */
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+.pop-art-input,
+.pop-art-textarea,
+.pop-art-select {
+    border: 2px solid #000000 !important;
+    border-radius: 0 !important;
+    box-shadow: 2px 2px 0px #cccccc !important;
+    font-size: 0.95rem !important;
+    padding: 0.5rem 0.75rem !important;
+}
+
+.pop-art-input:focus,
+.pop-art-textarea:focus,
+.pop-art-select:focus {
+    border-color: #e60073 !important; /* Magenta focus */
+    box-shadow: 2px 2px 0px #e60073, 0 0 0 0.2rem rgba(230, 0, 115, 0.25) !important;
+}
+
+.pop-art-textarea-table { /* Untuk textarea dalam jadual */
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+    font-size: 0.9rem;
+    min-height: 50px;
+}
+
+.pop-art-table {
+    border: 2px solid #000000;
+}
+.pop-art-table th,
+.pop-art-table td {
+    border: 1px solid #dee2e6;
+    vertical-align: middle;
+}
+.pop-art-table thead th {
+    font-family: 'Bangers', cursive;
+    background-color: #343a40;
+    color: white;
+    border-bottom-width: 2px;
+    border-bottom-color: #000000;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.btn-pop-art-action-main {
+    font-family: 'Bangers', cursive;
+    background-color: #ffc107; /* Kuning */
+    color: #000000;
+    border: 2px solid #000000;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    border-radius: 0;
+    box-shadow: 3px 3px 0px #000000;
+    transition: all 0.1s ease-in-out;
+}
+.btn-pop-art-action-main:hover {
+    background-color: #e6a700;
+    color: #000000;
+    box-shadow: 5px 5px 0px #000000;
+    transform: translate(-2px, -2px);
+}
+
+/* Butang Bootstrap standard dengan sentuhan Pop Art */
+.btn-primary {
+    border-radius: 0;
+    border-width: 2px;
+    border-color: #000;
+    box-shadow: 2px 2px 0px #000;
+}
+.btn-primary:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0px #000;
+}
+/* Ulang untuk .btn-success, .btn-info, .btn-warning, .btn-danger, .btn-secondary */
+.btn-success { border-radius: 0; border-width: 2px; border-color: #000; box-shadow: 2px 2px 0px #000; }
+.btn-success:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0px #000; }
+.btn-info { border-radius: 0; border-width: 2px; border-color: #000; box-shadow: 2px 2px 0px #000; }
+.btn-info:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0px #000; }
+.btn-warning { border-radius: 0; border-width: 2px; border-color: #000; box-shadow: 2px 2px 0px #000; }
+.btn-warning:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0px #000; }
+.btn-danger { border-radius: 0; border-width: 2px; border-color: #000; box-shadow: 2px 2px 0px #000; }
+.btn-danger:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0px #000; }
+.btn-secondary { border-radius: 0; border-width: 2px; border-color: #000; box-shadow: 2px 2px 0px #000; }
+.btn-secondary:hover { transform: translate(-1px, -1px); box-shadow: 3px 3px 0px #000; }
+
+
+.pop-art-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+.pop-art-list li {
+    padding: 0.3rem 0;
+    border-bottom: 1px dashed #eee;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.95rem;
+}
+.pop-art-list li strong {
+    font-family: 'Passion One', sans-serif;
+    color: #e60073; /* Magenta */
+}
+.pop-art-list li:last-child {
+    border-bottom: none;
+}
+
+.pop-art-text { /* Untuk teks biasa yang mahu gaya Pop Art */
+    font-family: 'Passion One', sans-serif;
+    color: #333;
+}
+.pop-art-text-alt { /* Variasi teks Pop Art */
+    font-family: 'Bangers', cursive;
+    color: #007bff; /* Biru */
+    letter-spacing: 1px;
+}
+.pop-art-text-small {
+    font-size: 0.85rem;
+    font-family: 'Arial', sans-serif;
+}
+
+.pop-art-dropzone {
+    border: 3px dashed #000000;
+    padding: 30px;
+    text-align: center;
+    background-color: #fff9c4; /* Kuning lembut */
+    color: #333;
+    cursor: pointer;
+    border-radius: 0;
+    transition: background-color 0.3s ease;
+}
+.pop-art-dropzone:hover, .pop-art-dropzone.dragover {
+    background-color: #fff176; /* Kuning lebih terang */
+    border-style: solid;
+}
+.pop-art-dropzone .bi {
+    font-size: 3rem;
+    color: #000000;
+    margin-bottom: 0.5rem;
+}
+
+.pop-art-dropdown-menu {
+    border: 2px solid #000 !important;
+    border-radius: 0 !important;
+    box-shadow: 3px 3px 0px #000 !important;
+}
+.pop-art-dropdown-menu .dropdown-item {
+    font-family: 'Passion One', sans-serif;
+}
+.pop-art-dropdown-menu .dropdown-item:hover {
+    background-color: #ffc107; /* Kuning */
+    color: #000;
+}
+
+.footer-pop-art {
+    background-color: #343a40;
+    color: #f8f9fa;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    margin-top: 3rem;
+    border-top: 8px solid #000000;
+}
+.footer-pop-art p {
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+}
+.footer-link-back {
+    color: #ffc107; /* Kuning */
+    text-decoration: none;
+    font-weight: bold;
+}
+.footer-link-back:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Alert yang dipaparkan di atas */
+.alert.fixed-top-m1-alert, /* Untuk Modul 1 */
+.alert.fixed-top-m2-alert, /* Untuk Modul 2 */
+.alert.fixed-top-m3-alert, /* Untuk Modul 3 */
+.alert.fixed-top-bw-alert  /* Untuk Bina Watak (jika masih digunakan) */
+{ 
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 2099; /* Pastikan ia di atas semua elemen lain */
+    min-width: 300px; /* Lebar minimum untuk alert */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
