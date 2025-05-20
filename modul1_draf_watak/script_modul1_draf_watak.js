@@ -4,7 +4,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     console.log("Modul 1: DOMContentLoaded - Skrip Draf & Watak dimulakan.");
 
-    // --- Konfigurasi Jadual Papan Cerita Asas ---
     const rowsConfigM1 = [
         { label: "Mula Cerita", title: "Bahagian permulaan cerita – Siapa & di mana?" },
         { label: "Masalah", title: "Apa konflik, cabaran atau kejadian utama?" },
@@ -18,35 +17,29 @@ document.addEventListener('DOMContentLoaded', () => {
         { label: "Dialog Ringkas", key: "dialog_ringkas" }
     ];
 
-    // --- Kunci localStorage & Pemboleh Ubah Global Projek ---
     const LOCAL_STORAGE_KEY_EKA = 'projekBCPS_DataLengkap';
-    let projekDataEkaSemasa = {}; // Objek utama untuk menyimpan keseluruhan JSON Eka
-    let senaraiWatakModul1 = []; // Rujukan kepada projekDataEkaSemasa.senaraiWatak
+    let projekDataEkaSemasa = {}; 
+    let senaraiWatakModul1 = []; 
     let editingCharacterIdM1 = null;
 
-    // --- Rujukan Elemen DOM Utama ---
-    // Maklumat Projek
     const inputTajukProjekM1 = document.getElementById('inputTajukProjekM1');
     const inputGenreUtamaM1 = document.getElementById('inputGenreUtamaM1');
     const inputSinopsisM1 = document.getElementById('inputSinopsisM1');
     const inputCatatanBCJM1 = document.getElementById('inputCatatanBCJM1');
+    const tajukProjekAktifDisplayM1 = document.getElementById('tajukProjekAktifDisplayM1');
 
-    // Alat & Tindakan Projek
     const inputFailJsonEkaM1 = document.getElementById('inputFailJsonEkaM1');
     const btnBukaProjekJsonEkaM1 = document.getElementById('btnBukaProjekJsonEkaM1');
     const btnMuatTurunJsonEkaM1 = document.getElementById('btnMuatTurunJsonEkaM1');
-    // Butang dalam dropdown Adun AI akan dipasang listener secara berasingan
+    const btnMulakanProjekBaruM1 = document.getElementById('btnMulakanProjekBaruM1'); 
 
-    // Papan Cerita Asas
     const bcTableM1Body = document.getElementById('bcBodyM1');
     const bcTableM1HeaderRow = document.querySelector("#bcTableM1 thead tr");
 
-    // Editor Karangan Lanjutan
     const btnToggleEditorKaranganM1 = document.getElementById('btnToggleEditorKaranganM1');
     const richEditorContainerM1 = document.getElementById('richEditorContainerM1');
     const richEditorM1 = document.getElementById('richEditorM1');
 
-    // Borang Watak
     const borangWatakM1 = document.getElementById('borangWatakM1');
     const headerBorangWatakM1 = document.getElementById('headerBorangWatakM1');
     const idUnikWatakInputM1 = document.getElementById('idUnikWatakM1');
@@ -55,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const deskripsiImejRujukanInputM1 = document.getElementById('deskripsiImejRujukanM1');
     const personalitiKunciInputM1 = document.getElementById('personalitiKunciM1');
     const motivasiUtamaInputM1 = document.getElementById('motivasiUtamaM1');
-    // Tambah rujukan untuk medan borang watak yang lain (latar belakang, kelebihan, kelemahan - jika ada dalam HTML)
     const jantinaUmurVisualInputM1 = document.getElementById('jantinaUmurVisualM1');
     const bentukBadanInputM1 = document.getElementById('bentukBadanM1');
     const warnaRambutGayaInputM1 = document.getElementById('warnaRambutGayaM1');
@@ -63,21 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const warnaKulitInputM1 = document.getElementById('warnaKulitM1');
     const pakaianLazimInputM1 = document.getElementById('pakaianLazimM1');
     const aksesoriKhasInputM1 = document.getElementById('aksesoriKhasM1');
-    // Tambah rujukan untuk medan penampilan visual lain jika ada
-
     const btnBatalEditTambahM1 = document.getElementById('btnBatalEditTambahM1');
-    // btnSimpanWatakM1 akan diuruskan oleh event submit borangWatakM1
 
-    // Senarai Watak
     const senaraiWatakDisplayAreaM1 = document.getElementById('senaraiWatakDisplayAreaM1');
-
-    // Butang Tindakan Utama Modul
     const btnSimpanDanTeruskanKeModul2 = document.getElementById('btnSimpanDanTeruskanKeModul2');
 
-
-    // --- Fungsi Bantuan (Alert, Download, Generate ID) ---
     function showAlertM1(message, type = 'info') {
-        // Implementasi fungsi alert yang konsisten
         const alertContainer = document.querySelector('main.container');
         if (!alertContainer) { console.warn("Modul 1: Alert container tidak ditemui."); return; }
         const alertDiv = document.createElement('div');
@@ -91,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const existingAlert = document.querySelector('.alert.fixed-top-m1-alert');
         if (existingAlert) existingAlert.remove();
         alertDiv.classList.add('fixed-top-m1-alert');
-        document.body.appendChild(alertDiv); // Tambah ke body supaya sentiasa di atas
+        document.body.appendChild(alertDiv); 
         setTimeout(() => {
             if (alertDiv && alertDiv.parentElement) {
                 const bsAlert = (typeof bootstrap !== 'undefined' && bootstrap.Alert) ? bootstrap.Alert.getInstance(alertDiv) : null;
@@ -111,15 +94,14 @@ document.addEventListener('DOMContentLoaded', () => {
         URL.revokeObjectURL(link.href);
     }
 
-    function generateUniqueId() { // ID umum untuk projek atau watak
+    function generateUniqueId() { 
         return `id_${Date.now()}_${Math.random().toString(36).substring(2, 9)}`;
     }
 
-    // --- Pengurusan Projek "JSON Eka" ---
     function inisialisasiProjekEkaKosong() {
         projekDataEkaSemasa = {
             versiProjek: "1.0",
-            idProjekUnik: generateUniqueId(),
+            idProjekUnik: generateUniqueId(), 
             infoKomik: {
                 tajukProjek: "Projek Komik Baru Tanpa Tajuk",
                 genreUtama: "",
@@ -129,14 +111,19 @@ document.addEventListener('DOMContentLoaded', () => {
             drafCeritaAsasBCJunior: [],
             karanganLanjutan: "",
             senaraiWatak: [],
-            comicData: [],
+            panduanAIPanel: { // Arahan AI Global Ditambah Di Sini
+                arahanSusunan: "Untuk AI Penjana Imej: Sila hasilkan imej panel demi panel mengikut urutan yang diberikan.",
+                peringatanPolisi: "PENTING: Pastikan semua deskripsi panel mematuhi polisi kandungan AI."
+            },
+            comicData: [],      
+            senaraiPanel: [],   
             metadataLain: {
                 tarikhDicipta: new Date().toISOString(),
                 tarikhKemasKiniTerakhir: new Date().toISOString()
             }
         };
-        senaraiWatakModul1 = projekDataEkaSemasa.senaraiWatak; // Set rujukan
-        console.log("Modul 1: Projek Eka kosong diinisialisasi.", projekDataEkaSemasa);
+        senaraiWatakModul1 = projekDataEkaSemasa.senaraiWatak; 
+        console.log("Modul 1: Projek Eka kosong telah diinisialisasi dengan ID baru:", projekDataEkaSemasa.idProjekUnik);
     }
 
     function muatProjekEkaDariLocalStorage() {
@@ -144,37 +131,41 @@ document.addEventListener('DOMContentLoaded', () => {
         if (dataString) {
             try {
                 projekDataEkaSemasa = JSON.parse(dataString);
-                // Pastikan semua bahagian utama wujud
-                projekDataEkaSemasa.infoKomik = projekDataEkaSemasa.infoKomik || {};
+                projekDataEkaSemasa.infoKomik = projekDataEkaSemasa.infoKomik || { tajukProjek: "Projek Dimuatkan (Tanpa Tajuk)"};
                 projekDataEkaSemasa.drafCeritaAsasBCJunior = projekDataEkaSemasa.drafCeritaAsasBCJunior || [];
                 projekDataEkaSemasa.karanganLanjutan = projekDataEkaSemasa.karanganLanjutan || "";
                 projekDataEkaSemasa.senaraiWatak = projekDataEkaSemasa.senaraiWatak || [];
+                projekDataEkaSemasa.panduanAIPanel = projekDataEkaSemasa.panduanAIPanel || { // Default untuk panduanAIPanel jika tiada
+                    arahanSusunan: "Untuk AI Penjana Imej: Sila hasilkan imej panel demi panel mengikut urutan yang diberikan.",
+                    peringatanPolisi: "PENTING: Pastikan semua deskripsi panel mematuhi polisi kandungan AI."
+                };
                 projekDataEkaSemasa.comicData = projekDataEkaSemasa.comicData || [];
-                projekDataEkaSemasa.metadataLain = projekDataEkaSemasa.metadataLain || {};
+                projekDataEkaSemasa.senaraiPanel = projekDataEkaSemasa.senaraiPanel || [];
+                projekDataEkaSemasa.metadataLain = projekDataEkaSemasa.metadataLain || {tarikhDicipta: new Date().toISOString(), tarikhKemasKiniTerakhir: new Date().toISOString()};
                 if (!projekDataEkaSemasa.idProjekUnik) projekDataEkaSemasa.idProjekUnik = generateUniqueId();
 
                 senaraiWatakModul1 = projekDataEkaSemasa.senaraiWatak;
                 isiSemuaBorangDariProjekEka();
-                showAlertM1(`Projek "${projekDataEkaSemasa.infoKomik.tajukProjek || 'Tanpa Tajuk'}" dimuatkan.`, "info");
+                showAlertM1(`Projek "${projekDataEkaSemasa.infoKomik.tajukProjek || 'Tanpa Tajuk'}" (ID: ${projekDataEkaSemasa.idProjekUnik}) dimuatkan.`, "info");
             } catch (error) {
                 console.error("Modul 1: Ralat memuat JSON Eka dari localStorage:", error);
                 showAlertM1("Gagal memuat data projek. Memulakan projek baru.", "danger");
                 inisialisasiProjekEkaKosong();
-                isiSemuaBorangDariProjekEka(); // Isi borang dengan data kosong
+                isiSemuaBorangDariProjekEka(); 
             }
         } else {
             inisialisasiProjekEkaKosong();
-            isiSemuaBorangDariProjekEka(); // Isi borang dengan data kosong
+            isiSemuaBorangDariProjekEka(); 
         }
+         if (tajukProjekAktifDisplayM1 && projekDataEkaSemasa.infoKomik) {
+             tajukProjekAktifDisplayM1.innerHTML = `Projek Aktif: <strong>${projekDataEkaSemasa.infoKomik.tajukProjek || "Belum Bertajuk"}</strong> (ID: ${projekDataEkaSemasa.idProjekUnik || "Tiada ID"})`;
+         }
     }
 
     function simpanProjekEkaKeLocalStorage() {
         if (!projekDataEkaSemasa || !projekDataEkaSemasa.idProjekUnik) {
-            console.warn("Modul 1: Tiada data projek aktif untuk disimpan.");
-            // inisialisasiProjekEkaKosong(); // Mungkin tidak perlu inisialisasi jika hanya simpan
-            // return;
+             inisialisasiProjekEkaKosong(); 
         }
-        // Kumpul data terkini dari semua input sebelum simpan
         kumpulDataKeProjekEka(); 
         
         projekDataEkaSemasa.metadataLain.tarikhKemasKiniTerakhir = new Date().toISOString();
@@ -188,27 +179,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function isiSemuaBorangDariProjekEka() {
-        // Isi Maklumat Asas Projek
+        if (!projekDataEkaSemasa) {
+             console.error("Modul 1: projekDataEkaSemasa tidak wujud semasa cuba isi borang.");
+             inisialisasiProjekEkaKosong(); 
+        }
+        
         if (inputTajukProjekM1) inputTajukProjekM1.value = projekDataEkaSemasa.infoKomik?.tajukProjek || "";
         if (inputGenreUtamaM1) inputGenreUtamaM1.value = projekDataEkaSemasa.infoKomik?.genreUtama || "";
         if (inputSinopsisM1) inputSinopsisM1.value = projekDataEkaSemasa.infoKomik?.sinopsisRingkasProjek || "";
         if (inputCatatanBCJM1) inputCatatanBCJM1.value = projekDataEkaSemasa.infoKomik?.catatanBCJunior || "";
 
-        // Isi Papan Cerita Asas
-        if (Array.isArray(projekDataEkaSemasa.drafCeritaAsasBCJunior)) {
-            loadDataToTableM1(projekDataEkaSemasa.drafCeritaAsasBCJunior);
+        if (tajukProjekAktifDisplayM1 && projekDataEkaSemasa.infoKomik) {
+             tajukProjekAktifDisplayM1.innerHTML = `Projek Aktif: <strong>${projekDataEkaSemasa.infoKomik.tajukProjek || "Belum Bertajuk"}</strong> (ID: ${projekDataEkaSemasa.idProjekUnik || "Tiada ID"})`;
         }
 
-        // Isi Editor Karangan Lanjutan
-        if (richEditorM1) richEditorM1.innerHTML = projekDataEkaSemasa.karanganLanjutan || "";
+        if (Array.isArray(projekDataEkaSemasa.drafCeritaAsasBCJunior)) {
+            loadDataToTableM1(projekDataEkaSemasa.drafCeritaAsasBCJunior);
+        } else {
+            loadDataToTableM1([]); 
+        }
+
+        if (richEditorM1) richEditorM1.innerHTML = projekDataEkaSemasa.karanganLanjutan || "Tampal hasil adunan cerita dari AI atau tulis karangan penuh di sini...";
         
-        // Isi Senarai Watak
+        // Panduan AI Panel tidak dipaparkan di UI Modul 1, hanya disimpan dalam data.
+
+        senaraiWatakModul1 = projekDataEkaSemasa.senaraiWatak || []; 
         renderSenaraiWatakM1();
-        kosongkanBorangWatakM1(); // Pastikan borang watak bersih selepas muat projek
+        kosongkanBorangWatakM1(); 
     }
 
     function kumpulDataKeProjekEka() {
-        if (!projekDataEkaSemasa) inisialisasiProjekEkaKosong(); // Pastikan objek utama wujud
+        if (!projekDataEkaSemasa) inisialisasiProjekEkaKosong(); 
 
         projekDataEkaSemasa.infoKomik = {
             tajukProjek: inputTajukProjekM1?.value.trim() || projekDataEkaSemasa.infoKomik?.tajukProjek || "Projek Tanpa Tajuk",
@@ -218,9 +219,14 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         projekDataEkaSemasa.drafCeritaAsasBCJunior = getTableDataM1();
         projekDataEkaSemasa.karanganLanjutan = richEditorM1?.innerHTML || "";
-        projekDataEkaSemasa.senaraiWatak = senaraiWatakModul1; // senaraiWatakModul1 sepatutnya sudah terkini
-        // comicData tidak diuruskan di modul ini, jadi kekalkan apa yang ada
+        projekDataEkaSemasa.senaraiWatak = senaraiWatakModul1; 
+        // Pastikan panduanAIPanel kekal jika sudah ada, atau dari inisialisasi
+        projekDataEkaSemasa.panduanAIPanel = projekDataEkaSemasa.panduanAIPanel || { 
+            arahanSusunan: "Untuk AI Penjana Imej: Sila hasilkan imej panel demi panel mengikut urutan yang diberikan.",
+            peringatanPolisi: "PENTING: Pastikan semua deskripsi panel mematuhi polisi kandungan AI."
+        };
         projekDataEkaSemasa.comicData = projekDataEkaSemasa.comicData || []; 
+        projekDataEkaSemasa.senaraiPanel = projekDataEkaSemasa.senaraiPanel || []; 
     }
 
     function handleMuatNaikJsonEkaM1(event) {
@@ -231,20 +237,36 @@ document.addEventListener('DOMContentLoaded', () => {
             reader.onload = (e) => {
                 try {
                     const dataDimuat = JSON.parse(e.target.result);
-                    // Pengesahan struktur asas JSON Eka
-                    if (dataDimuat && dataDimuat.infoKomik && dataDimuat.drafCeritaAsasBCJunior &&
-                        dataDimuat.senaraiWatak && dataDimuat.comicData && dataDimuat.idProjekUnik) {
-                        
-                        if (projekDataEkaSemasa.idProjekUnik && !confirm("Ini akan menggantikan semua data projek semasa. Teruskan?")) {
+
+                    if (dataDimuat && dataDimuat.infoKomik &&
+                        Array.isArray(dataDimuat.drafCeritaAsasBCJunior) &&
+                        Array.isArray(dataDimuat.senaraiWatak) &&
+                        dataDimuat.idProjekUnik) {
+
+                        dataDimuat.panduanAIPanel = dataDimuat.panduanAIPanel || { 
+                            arahanSusunan: "Untuk AI Penjana Imej: Sila hasilkan imej panel demi panel mengikut urutan yang diberikan.",
+                            peringatanPolisi: "PENTING: Pastikan semua deskripsi panel mematuhi polisi kandungan AI."
+                        };
+                        dataDimuat.comicData = Array.isArray(dataDimuat.comicData) ? dataDimuat.comicData : [];
+                        dataDimuat.senaraiPanel = Array.isArray(dataDimuat.senaraiPanel) ? dataDimuat.senaraiPanel : [];
+
+                        if (projekDataEkaSemasa.idProjekUnik && projekDataEkaSemasa.idProjekUnik !== "id_0_default" && 
+                            !confirm("Ini akan menggantikan semua data projek semasa. Teruskan?")) {
                             if(inputFailJsonEkaM1) inputFailJsonEkaM1.value = "";
                             return;
                         }
                         projekDataEkaSemasa = dataDimuat;
-                        senaraiWatakModul1 = projekDataEkaSemasa.senaraiWatak; // Kemaskini rujukan
-                        isiSemuaBorangDariProjekEka(); // Isi semua borang dengan data baru
+                        senaraiWatakModul1 = projekDataEkaSemasa.senaraiWatak; 
+                        isiSemuaBorangDariProjekEka(); 
                         showAlertM1("Projek JSON Eka berjaya dimuat naik!", "success");
+
                     } else {
-                        throw new Error("Struktur fail JSON Eka tidak sah atau tidak lengkap.");
+                        let missingParts = [];
+                        if (!dataDimuat) missingParts.push("data utama");
+                        if (!(dataDimuat && dataDimuat.infoKomik)) missingParts.push("infoKomik");
+                        // ... (tambah pemeriksaan lain jika perlu)
+                        if (!(dataDimuat && dataDimuat.idProjekUnik)) missingParts.push("idProjekUnik");
+                        throw new Error(`Struktur fail JSON Eka tidak sah. Bahagian penting mungkin hilang: ${missingParts.join(', ')}.`);
                     }
                 } catch (error) {
                     showAlertM1(`Ralat memproses fail JSON Eka: ${error.message}`, "danger");
@@ -259,17 +281,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function handleMuatTurunJsonEkaM1() {
-        kumpulDataKeProjekEka(); // Pastikan data terkini dikumpul
+        kumpulDataKeProjekEka(); 
         if (!projekDataEkaSemasa || !projekDataEkaSemasa.idProjekUnik) {
-            showAlertM1("Tiada data projek aktif untuk dimuat turun.", "warning");
+            showAlertM1("Tiada data projek aktif untuk dimuat turun. Sila simpan atau mulakan projek baru.", "warning");
             return;
         }
         const tajukFail = (projekDataEkaSemasa.infoKomik.tajukProjek || "ProjekTanpaTajuk").replace(/[^a-z0-9]/gi, '_').toLowerCase();
         downloadFileM1(`BCPS_ProjekPenuh_${tajukFail}_M1.json`, JSON.stringify(projekDataEkaSemasa, null, 2), "application/json");
     }
 
-
-    // --- Logik Papan Cerita Asas (Adaptasi dari script_jc.js) ---
     function populateTableHeaderM1() {
         if (!bcTableM1HeaderRow) { console.error("Modul 1: Elemen thead tr #bcTableM1 tidak ditemui."); return; }
         bcTableM1HeaderRow.innerHTML = ""; 
@@ -320,41 +340,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function loadDataToTableM1(dataToLoad) {
-        if (!bcTableM1Body || !bcTableM1Body.rows) { return; }
-        [...bcTableM1Body.rows].forEach(tr => {
-            [...tr.querySelectorAll("td textarea")].forEach(textarea => textarea.value = "");
-        });
-        if (Array.isArray(dataToLoad)) {
+        if (!bcTableM1Body) { 
+            console.error("Modul 1: Elemen tbody #bcBodyM1 tidak ditemui semasa loadDataToTableM1.");
+            return; 
+        }
+        [...bcTableM1Body.querySelectorAll("td textarea")].forEach(textarea => textarea.value = "");
+
+        if (Array.isArray(dataToLoad) && dataToLoad.length > 0) {
             dataToLoad.forEach((dataRow, rowIndex) => {
                 if (rowIndex < bcTableM1Body.rows.length && dataRow && typeof dataRow === 'object') {
                     const tr = bcTableM1Body.rows[rowIndex];
-                    const textareas = tr.querySelectorAll("td textarea");
-                    colsConfigM1.forEach((colConf, colIndex) => {
-                        if (textareas[colIndex] && typeof dataRow[colConf.key] !== 'undefined') {
-                            textareas[colIndex].value = dataRow[colConf.key] || "";
-                        }
-                    });
+                    if (tr) { 
+                        const textareas = tr.querySelectorAll("td textarea");
+                        colsConfigM1.forEach((colConf, colIndex) => {
+                            if (textareas[colIndex] && typeof dataRow[colConf.key] !== 'undefined') {
+                                textareas[colIndex].value = dataRow[colConf.key] || "";
+                            }
+                        });
+                    }
                 }
             });
         }
     }
     
-    // --- Logik Editor Karangan Lanjutan ---
     function toggleEditorKaranganM1() {
         if (richEditorContainerM1) {
             const isVisible = richEditorContainerM1.style.display === "block";
             richEditorContainerM1.style.display = isVisible ? "none" : "block";
+            if (btnToggleEditorKaranganM1) btnToggleEditorKaranganM1.querySelector('i').className = isVisible ? "bi bi-arrows-expand" : "bi bi-arrows-collapse";
             if (!isVisible && richEditorContainerM1.scrollIntoView) richEditorContainerM1.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }
 
-    // --- Logik Pembangunan Watak (Adaptasi dari script_bina_watak.js) ---
     function kosongkanBorangWatakM1() {
         if (borangWatakM1) borangWatakM1.reset();
         if (idUnikWatakInputM1) idUnikWatakInputM1.value = '';
         editingCharacterIdM1 = null;
         if (headerBorangWatakM1) headerBorangWatakM1.innerHTML = '<i class="bi bi-person-plus-fill me-2"></i>Tambah Watak Baru';
-        if (namaWatakInputM1) namaWatakInputM1.focus();
     }
 
     function isiBorangDenganDataWatakM1(watak) {
@@ -362,6 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
         editingCharacterIdM1 = watak.idUnikWatak;
         if (idUnikWatakInputM1) idUnikWatakInputM1.value = watak.idUnikWatak;
         if (namaWatakInputM1) namaWatakInputM1.value = watak.namaWatak || "";
+        // ... (semua medan watak lain diisi seperti sebelumnya) ...
         if (perananInputM1) perananInputM1.value = watak.peranan || "";
         if (deskripsiImejRujukanInputM1) deskripsiImejRujukanInputM1.value = watak.deskripsiImejRujukan || "";
         if (personalitiKunciInputM1) personalitiKunciInputM1.value = watak.personalitiKunci || "";
@@ -375,10 +398,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (warnaKulitInputM1) warnaKulitInputM1.value = watak.penampilanVisual.warnaKulit || "";
             if (pakaianLazimInputM1) pakaianLazimInputM1.value = watak.penampilanVisual.pakaianLazim || "";
             if (aksesoriKhasInputM1) aksesoriKhasInputM1.value = watak.penampilanVisual.aksesoriKhas || "";
-        } else { 
-            if (jantinaUmurVisualInputM1) jantinaUmurVisualInputM1.value = ""; 
-            // ... kosongkan medan penampilan lain
         }
+
         if (headerBorangWatakM1) headerBorangWatakM1.innerHTML = `<i class="bi bi-pencil-fill me-2"></i>Edit Watak: ${watak.namaWatak}`;
         const borangCard = document.getElementById('borangWatakModul1Card');
         if (borangCard && borangCard.scrollIntoView) borangCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -387,7 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function handleSimpanWatakM1(event) {
         event.preventDefault(); 
         if (!projekDataEkaSemasa || !Array.isArray(projekDataEkaSemasa.senaraiWatak)) {
-            showAlertM1("Struktur data projek tidak diinisialisasi dengan betul.", "danger");
+            showAlertM1("Struktur data projek tidak diinisialisasi. Cuba muat semula atau mulakan projek baru.", "danger");
             return; 
         }
         const watakData = {
@@ -397,7 +418,6 @@ document.addEventListener('DOMContentLoaded', () => {
             deskripsiImejRujukan: deskripsiImejRujukanInputM1.value.trim(),
             personalitiKunci: personalitiKunciInputM1.value.trim(),
             motivasiUtama: motivasiUtamaInputM1.value.trim(),
-            // Tambah pengambilan data untuk medan watak lain yang ada dalam HTML
             penampilanVisual: {
                 jantinaUmurVisual: jantinaUmurVisualInputM1.value.trim(),
                 bentukBadan: bentukBadanInputM1.value.trim(),
@@ -406,7 +426,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 warnaKulit: warnaKulitInputM1.value.trim(),
                 pakaianLazim: pakaianLazimInputM1.value.trim(),
                 aksesoriKhas: aksesoriKhasInputM1.value.trim(),
-                // Tambah pengambilan data untuk medan penampilan lain
             }
         };
         if (!watakData.namaWatak) {
@@ -414,17 +433,19 @@ document.addEventListener('DOMContentLoaded', () => {
             if (namaWatakInputM1) namaWatakInputM1.focus();
             return;
         }
-        if (editingCharacterIdM1) {
+
+        const isEditing = editingCharacterIdM1 !== null;
+        if (isEditing) {
             const index = senaraiWatakModul1.findIndex(w => w.idUnikWatak === editingCharacterIdM1);
             if (index !== -1) senaraiWatakModul1[index] = watakData; 
         } else {
             senaraiWatakModul1.push(watakData); 
         }
-        projekDataEkaSemasa.senaraiWatak = senaraiWatakModul1; // Pastikan objek utama dikemaskini
-        editingCharacterIdM1 = null; 
+        projekDataEkaSemasa.senaraiWatak = senaraiWatakModul1; 
+        
         kosongkanBorangWatakM1(); 
         renderSenaraiWatakM1();
-        showAlertM1(`Watak "${watakData.namaWatak}" ${editingCharacterIdM1 ? 'dikemaskini' : 'ditambah'}. Simpan projek untuk kekalkan.`, "success");
+        showAlertM1(`Watak "${watakData.namaWatak}" ${isEditing ? 'dikemaskini' : 'ditambah'}. Sila simpan projek untuk kekalkan perubahan.`, "success");
     }
 
     function renderSenaraiWatakM1() {
@@ -466,25 +487,25 @@ document.addEventListener('DOMContentLoaded', () => {
             senaraiWatakModul1 = projekDataEkaSemasa.senaraiWatak; 
             if (editingCharacterIdM1 === idWatak) kosongkanBorangWatakM1();
             renderSenaraiWatakM1();
-            showAlertM1(`Watak "${namaWatak}" dipadam. Simpan projek untuk kekalkan.`, "info");
+            showAlertM1(`Watak "${namaWatak}" dipadam. Sila simpan projek untuk kekalkan perubahan.`, "info");
         }
     }
 
-    // --- Logik "Adun & Salin Prompt AI (Jadual)" (Adaptasi dari script_jc.js) ---
     function adunDanSalinPromptAIM1(platformAI) {
+        // ... (fungsi ini kekal sama seperti versi penuh terakhir) ...
         const tableData = getTableDataM1();
         if (tableData.length === 0 || tableData.every(row => colsConfigM1.every(col => !(row[col.key] && row[col.key].trim())))) {
             showAlertM1("Tiada data di papan cerita untuk diadun.", "warning"); return;
         }
         let promptTeks = "Arahan untuk AI: Berdasarkan elemen cerita ini, hasilkan karangan naratif pendek (~260 perkataan) yang koheren.\n\n";
         const tajukProjekVal = inputTajukProjekM1 ? inputTajukProjekM1.value.trim() : "";
-        const tajukCadangan = tajukProjekVal !== "" ? tajukProjekVal : "Sebuah Kisah Epik";
+        const tajukCadangan = tajukProjekVal !== "" ? tajukProjekVal : (projekDataEkaSemasa.infoKomik?.tajukProjek || "Sebuah Kisah Epik");
         promptTeks += `JUDUL CADANGAN: '${tajukCadangan}'\n\n`;
         tableData.forEach(row => {
             promptTeks += `## TAHAP PLOT: ${row.plot_label}\n`;
             colsConfigM1.forEach(col => {
                 const nilai = row[col.key] || "";
-                if (nilai.trim() !== "") promptTeks += `  * ${col.label}: ${nilai}\n`;
+                if (nilai.trim() !== "") promptTeks += `    * ${col.label}: ${nilai}\n`;
             });
             promptTeks += "\n";
         });
@@ -506,27 +527,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // --- Logik Butang Utama Modul: Simpan & Teruskan ---
     function handleSimpanDanTeruskanKeModul2() {
-        kumpulDataKeProjekEka(); // Pastikan semua data terkini dari borang dikumpul ke projekDataEkaSemasa
-        simpanProjekEkaKeLocalStorage(); // Simpan versi terkini ke localStorage
+        kumpulDataKeProjekEka(); 
+        simpanProjekEkaKeLocalStorage(); 
         showAlertM1("Projek disimpan! Meneruskan ke Modul Susun Panel...", "info");
         setTimeout(() => {
-            // Anda perlu cipta halaman Modul 2 ini, contohnya: ../modul2_susun_panel/modul2_susun_panel.html
             window.location.href = '../modul2_susun_panel/modul2_susun_panel.html'; 
         }, 1500);
     }
 
-    // --- Inisialisasi Modul 1 & Pemasangan Event Listener ---
-    function initModul1() {
-        // Inisialisasi rujukan DOM info projek di sini selepas DOM sedia
-        // inputTajukProjekM1 = document.getElementById('inputTajukProjekM1'); // Sudah di atas
-        // inputGenreUtamaM1 = document.getElementById('inputGenreUtamaM1'); // Sudah di atas
-        // inputSinopsisM1 = document.getElementById('inputSinopsisM1');     // Sudah di atas
+    function handleMulakanProjekBaruM1() {
+        if (confirm("Anda pasti mahu mengosongkan semua data dalam modul ini dan memulakan draf projek baru? Semua perubahan yang belum disimpan akan hilang.")) {
+            inisialisasiProjekEkaKosong(); 
+            isiSemuaBorangDariProjekEka(); 
 
+            renderSenaraiWatakM1();
+            kosongkanBorangWatakM1();
+
+            if (tajukProjekAktifDisplayM1 && projekDataEkaSemasa.infoKomik) {
+                tajukProjekAktifDisplayM1.innerHTML = `Projek Aktif: <strong>${projekDataEkaSemasa.infoKomik.tajukProjek || "Belum Bertajuk"}</strong> (ID: ${projekDataEkaSemasa.idProjekUnik})`;
+            }
+            showAlertM1("Semua medan telah dikosongkan. Sedia untuk draf projek baru.", "info");
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+
+    function initModul1() {
         populateTableHeaderM1();
-        populateTableM1();
-        muatProjekEkaDariLocalStorage(); // Muat data projek sedia ada atau inisialisasi baru
+        populateTableM1(); 
+        muatProjekEkaDariLocalStorage(); 
 
         if (btnBukaProjekJsonEkaM1 && inputFailJsonEkaM1) {
             btnBukaProjekJsonEkaM1.addEventListener('click', () => inputFailJsonEkaM1.click());
@@ -534,7 +563,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (btnMuatTurunJsonEkaM1) btnMuatTurunJsonEkaM1.addEventListener('click', handleMuatTurunJsonEkaM1);
         
-        // Listener untuk dropdown Adun AI
+        if (btnMulakanProjekBaruM1) {
+            btnMulakanProjekBaruM1.addEventListener('click', handleMulakanProjekBaruM1);
+        }
+        
         const btnAdunGemini = document.getElementById('btnAdunGeminiM1');
         if (btnAdunGemini) btnAdunGemini.addEventListener('click', () => adunDanSalinPromptAIM1('gemini'));
         const btnAdunChatGPT = document.getElementById('btnAdunChatGPTM1');
@@ -548,11 +580,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (borangWatakM1) borangWatakM1.addEventListener('submit', handleSimpanWatakM1);
         if (btnBatalEditTambahM1) btnBatalEditTambahM1.addEventListener('click', kosongkanBorangWatakM1);
-        // Anda mungkin perlukan butang "Tambah Watak Baru" yang berasingan jika mahu,
-        // atau pengguna boleh terus isi borang dan "Simpan Watak" akan menambah baru jika tiada mod edit.
 
         if (btnSimpanDanTeruskanKeModul2) btnSimpanDanTeruskanKeModul2.addEventListener('click', handleSimpanDanTeruskanKeModul2);
     }
 
-    initModul1(); // Mulakan Modul 1
+    initModul1(); 
 });
